@@ -4,9 +4,12 @@ public class ThrowableCardController : MonoBehaviour
 {
     public GameObject CardProjectile;
 
-    private GameObject weaponController;
+    [SerializeField]
+    private int baseManaUse = 2;
 
     private Camera mainCamera;
+    private PlayerMain playerMainScript;
+
     Vector3 mousePosition;
     bool primaryFire;
     bool secondaryFire;
@@ -14,7 +17,7 @@ public class ThrowableCardController : MonoBehaviour
     private void Start()
     {
         mainCamera = Camera.main;
-        weaponController = this.transform.parent.gameObject;
+        playerMainScript = this.transform.parent.gameObject.GetComponent<PlayerMain>();
     }
 
     void Update()
@@ -39,6 +42,7 @@ public class ThrowableCardController : MonoBehaviour
             primaryFire = false;
 
             PrimaryFire();
+
         }
         else if (secondaryFire) 
         {
@@ -50,6 +54,10 @@ public class ThrowableCardController : MonoBehaviour
 
     void PrimaryFire()
     {
+        if (playerMainScript.mana < baseManaUse) return;
+
+        playerMainScript.mana -= baseManaUse;
+
         Quaternion cardRotation = Quaternion.Euler(0, 0, GetAngleToCursorDegrees());
 
         GameObject projectile = Instantiate(CardProjectile, transform.position, cardRotation);
@@ -57,6 +65,10 @@ public class ThrowableCardController : MonoBehaviour
 
     void SecondaryFire()
     {
+        if (playerMainScript.mana < 3 * baseManaUse) return;
+
+        playerMainScript.mana -= baseManaUse * 3;
+
         float cursorAngle = GetAngleToCursorDegrees();
 
         float cardGapInDegrees = 10;

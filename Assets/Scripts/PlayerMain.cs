@@ -46,8 +46,6 @@ public class PlayerMain : MonoBehaviour
         ManaCounter.text = mana + " / " + maxMana;
     }
 
-
-
     void Regenerate()
     {
         if(health < maxHP)
