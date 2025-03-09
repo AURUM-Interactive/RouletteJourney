@@ -1,3 +1,4 @@
+using System;
 using UnityEngine;
 
 public class PlayerController : MonoBehaviour 
@@ -7,6 +8,9 @@ public class PlayerController : MonoBehaviour
 
     //Rigidbody of player object
     public Rigidbody2D rb;
+
+    // Animator of player sprite
+    public Animator playerSpriteAnimator;
 
     //Used FixedUpdate instead of Update for the love of god
     public void FixedUpdate()
@@ -21,6 +25,14 @@ public class PlayerController : MonoBehaviour
 
         //Apply movement
         rb.MovePosition(rb.transform.position + tempVect);
+
+        UpdatePlayerSpriteAnimator(h, v);
+    }
+
+    private void UpdatePlayerSpriteAnimator(float h, float v)
+    {
+        playerSpriteAnimator.SetFloat("xVelocity", h);
+        playerSpriteAnimator.SetFloat("yVelocity", v);
     }
 }
 
