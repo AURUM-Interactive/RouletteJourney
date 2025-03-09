@@ -4,12 +4,18 @@ public class ThrowableCardController : MonoBehaviour
 {
     public GameObject CardProjectile;
 
-    [SerializeField]
-    private Camera mainCamera;
+    private GameObject weaponController;
 
+    private Camera mainCamera;
     Vector3 mousePosition;
     bool primaryFire;
     bool secondaryFire;
+
+    private void Start()
+    {
+        mainCamera = Camera.main;
+        weaponController = this.transform.parent.gameObject;
+    }
 
     void Update()
     {
@@ -32,23 +38,42 @@ public class ThrowableCardController : MonoBehaviour
         {
             primaryFire = false;
 
-            Quaternion cardRotation = Quaternion.Euler(0, 0, GetAngleToCursorDegrees());
-
-            var projectile = Instantiate(CardProjectile, transform.position, cardRotation);
+            PrimaryFire();
         }
         else if (secondaryFire) 
         {
             secondaryFire = false;
 
-            Quaternion leftCardRotation = Quaternion.Euler(0, 0, GetAngleToCursorDegrees() + 10);
-            var projectileLeft = Instantiate(CardProjectile, transform.position, leftCardRotation);
-
-            Quaternion centerCardRotation = Quaternion.Euler(0, 0, GetAngleToCursorDegrees());
-            var projectileCenter = Instantiate(CardProjectile, transform.position, centerCardRotation);
-
-            Quaternion rightCardRotation = Quaternion.Euler(0, 0, GetAngleToCursorDegrees() - 10);
-            var projectileRight = Instantiate(CardProjectile, transform.position, rightCardRotation);
+            SecondaryFire();
         }
+    }
+
+    void PrimaryFire()
+    {
+        Quaternion cardRotation = Quaternion.Euler(0, 0, GetAngleToCursorDegrees());
+
+        GameObject projectile = Instantiate(CardProjectile, transform.position, cardRotation);
+    }
+
+    void SecondaryFire()
+    {
+        float cursorAngle = GetAngleToCursorDegrees();
+
+        float cardGapInDegrees = 10;
+
+        float damageModifier = 0.5f;
+
+        Quaternion leftCardRotation = Quaternion.Euler(0, 0, cursorAngle + cardGapInDegrees);
+        var projectileLeft = Instantiate(CardProjectile, transform.position, leftCardRotation);
+        projectileLeft.GetComponent<ProjectileScript>().ModifyDamageMultiplicative(damageModifier);
+
+        Quaternion centerCardRotation = Quaternion.Euler(0, 0, cursorAngle);
+        var projectileCenter = Instantiate(CardProjectile, transform.position, centerCardRotation);
+        projectileCenter.GetComponent<ProjectileScript>().ModifyDamageMultiplicative(damageModifier);
+
+        Quaternion rightCardRotation = Quaternion.Euler(0, 0, cursorAngle - cardGapInDegrees);
+        var projectileRight = Instantiate(CardProjectile, transform.position, rightCardRotation);
+        projectileRight.GetComponent<ProjectileScript>().ModifyDamageMultiplicative(damageModifier);
     }
 
     float GetAngleToCursorDegrees()
