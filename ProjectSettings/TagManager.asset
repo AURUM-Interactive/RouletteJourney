@@ -6,6 +6,8 @@ TagManager:
   tags:
   - Wall
   - Obstacle
+  - PlayerProjectile
+  - Enemy
   layers:
   - Default
   - TransparentFX
