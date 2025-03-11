@@ -10,7 +10,12 @@ public class PlayerController : MonoBehaviour
     public Rigidbody2D rb;
 
     // Animator of player sprite
-    public Animator playerSpriteAnimator;
+    private Animator playerSpriteAnimator;
+
+    private void Start()
+    {
+        playerSpriteAnimator = GetComponent<Animator>();
+    }
 
     //Used FixedUpdate instead of Update for the love of god
     public void FixedUpdate()

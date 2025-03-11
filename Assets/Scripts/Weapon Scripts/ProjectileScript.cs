@@ -67,6 +67,11 @@ public class ProjectileScript : MonoBehaviour
         {
             Destroy(this.gameObject);
             Debug.Log($"Dealt {CalculateDamage()} damage to {collision.gameObject}");
+
+            if(collision.CompareTag("Enemy"))
+            {
+                Destroy(collision.gameObject);
+            }
         }
     }
 }
