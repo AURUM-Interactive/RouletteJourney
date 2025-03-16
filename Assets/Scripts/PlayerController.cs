@@ -4,7 +4,7 @@ using UnityEngine;
 public class PlayerController : MonoBehaviour 
 {
     //Movement speed
-    public float speed = 10;
+    public float movementSpeed = 10;
 
     //Rigidbody of player object
     public Rigidbody2D rb;
@@ -12,32 +12,41 @@ public class PlayerController : MonoBehaviour
     // Animator of player sprite
     private Animator playerSpriteAnimator;
 
+    private Vector2 moveDirection;
+
     private void Start()
     {
         playerSpriteAnimator = GetComponent<Animator>();
     }
 
-    //Used FixedUpdate instead of Update for the love of god
-    public void FixedUpdate()
+    public void Update()
     {
-        //Register inputs
-        float h = Input.GetAxis("Horizontal");
-        float v = Input.GetAxis("Vertical");
-
-        //Turn input into movement vector
-        Vector3 tempVect = new Vector3(h, v, 0);
-        tempVect = tempVect.normalized * speed * Time.deltaTime;
-
-        //Apply movement
-        rb.MovePosition(rb.transform.position + tempVect);
-
-        UpdatePlayerSpriteAnimator(h, v);
+        GetInput();
     }
 
-    private void UpdatePlayerSpriteAnimator(float h, float v)
+    public void FixedUpdate()
     {
-        playerSpriteAnimator.SetFloat("xVelocity", h);
-        playerSpriteAnimator.SetFloat("yVelocity", v);
+        MovePlayer();
+        UpdatePlayerSpriteAnimator(moveDirection.x, moveDirection.y);
+    }
+
+    private void GetInput()
+    {
+        float horizontalInput = Input.GetAxisRaw("Horizontal");
+        float verticalInput = Input.GetAxisRaw("Vertical");
+
+        moveDirection = new Vector2(horizontalInput, verticalInput).normalized;
+    }
+
+    private void MovePlayer()
+    {
+        rb.linearVelocity = new Vector2(moveDirection.x * movementSpeed, moveDirection.y * movementSpeed);
+    }
+
+    private void UpdatePlayerSpriteAnimator(float horizontalInput, float verticalInput)
+    {
+        playerSpriteAnimator.SetFloat("xVelocity", horizontalInput);
+        playerSpriteAnimator.SetFloat("yVelocity", verticalInput);
     }
 }
 
