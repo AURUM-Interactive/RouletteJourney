@@ -20,6 +20,7 @@ public class PlayerMain : MonoBehaviour
     private int defaultHealth = 30, defaultMaxHP = 50;
     private int defaultMana = 30, defaultMaxMana = 50;
     private float defaultHPRegen = 1, defaultManaRegen = 1;
+    
     // --------------
 
     private Slider HPBar, ManaBar;
