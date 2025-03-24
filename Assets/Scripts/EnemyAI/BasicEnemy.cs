@@ -9,6 +9,8 @@ public class SuicideEnemy : MonoBehaviour
     [SerializeField] public float activeSpeed = 3f;
     [SerializeField] public float minDistanceToPlayer = 3f;
     [SerializeField] public float reactionTime = 0.5f;
+    [SerializeField] public bool IsRanged;
+    [SerializeField] public bool IsMelee;
 
     private GameObject Player;
     private bool hasLineOfSight = false;
@@ -24,6 +26,8 @@ public class SuicideEnemy : MonoBehaviour
     void Start()
     {
         Player = GameObject.FindGameObjectWithTag("Player");
+        if (IsMelee) { StartCoroutine(MeleeAttacks()); }
+        if (IsRanged) { StartCoroutine(RangedAttacks()); }
     }
 
     void Update()
@@ -49,6 +53,8 @@ public class SuicideEnemy : MonoBehaviour
             }
             else if (distanceToPlayer < minDistanceToPlayer - bufferZone)
             {
+                
+
                 if (retreatCoroutine == null)
                 {
                     retreatCoroutine = StartCoroutine(RetreatAfterDelay());
@@ -67,13 +73,59 @@ public class SuicideEnemy : MonoBehaviour
         }
     }
 
+
+    private bool CanPerformMeleeAttack()
+    {
+        return distanceToPlayer <= 1f && hasLineOfSight;
+    }
+    private bool CanPerformRangedAttack()
+    {
+        return distanceToPlayer >= minDistanceToPlayer && hasLineOfSight;
+    }
+    private IEnumerator MeleeAttacks()
+    {
+        while (true)
+        {
+            // Wait until close enough and has line of sight
+            yield return new WaitUntil(CanPerformMeleeAttack);
+
+            // Perform attack
+            PlayerMain playerMain = Player.GetComponent<PlayerMain>();
+            if (playerMain != null)
+            {
+                playerMain.health -= 1;
+            }
+
+            // Wait before next attack
+            yield return new WaitForSeconds(1f);
+        }
+    }
+    private IEnumerator RangedAttacks()
+    {
+        while (true)
+        {
+            // Wait until in range and has line of sight
+            yield return new WaitUntil(CanPerformRangedAttack);
+
+            // Perform attack
+            PlayerMain playerMain = Player.GetComponent<PlayerMain>();
+            if (playerMain != null)
+            {
+                playerMain.health -= 3;
+            }
+
+            // Wait before next attack
+            yield return new WaitForSeconds(4f);
+        }
+    }
+
+
     private void MoveAround()
     {
         timer = 1f;
         moveDirection = Random.insideUnitCircle.normalized;
         transform.position = Vector2.MoveTowards(transform.position, moveDirection, idleSpeed * Time.fixedDeltaTime);
     }
-
     IEnumerator RetreatAfterDelay()
     {
         yield return new WaitForSeconds(reactionTime); // Wait before deciding to retreat
@@ -115,11 +167,12 @@ public class SuicideEnemy : MonoBehaviour
 
     private void OnCollisionEnter2D(Collision2D collision)
     {
+        if (IsMelee) return; // Disable if enemy is melee
+
         if (collision.gameObject.tag == "Player")
         {
             StartCoroutine(DestroyAfterDelay());
         }
-
         else
         {
             timer = 0;
