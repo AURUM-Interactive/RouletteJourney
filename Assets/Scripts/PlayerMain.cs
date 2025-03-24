@@ -2,9 +2,12 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 using TMPro;
+using System.IO;
+using System.Runtime.InteropServices;
 
 public class PlayerMain : MonoBehaviour
 {
+    public GameObject CardPrefab;
     // Live player values
     public int health = 30, maxHP = 50;
     public float HPRegenPerSecond = 1;
@@ -26,7 +29,7 @@ public class PlayerMain : MonoBehaviour
     private Slider HPBar, ManaBar;
     private TextMeshProUGUI HPCounter, ManaCounter;
 
-    public List<Card> inventory;
+    public List<CardData> inventory = new List<CardData>(3);
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
@@ -35,6 +38,41 @@ public class PlayerMain : MonoBehaviour
         ManaBar = GameObject.Find("ManaBar").GetComponent<Slider>();
         HPCounter = GameObject.Find("HPCounter").GetComponent<TextMeshProUGUI>();
         ManaCounter = GameObject.Find("ManaCounter").GetComponent<TextMeshProUGUI>();
+
+        GameObject Slot1 = GameObject.Find("Card1Pos");
+        GameObject Slot2 = GameObject.Find("Card2Pos");
+        GameObject Slot3 = GameObject.Find("Card3Pos");
+
+
+        //TODO: OBSERVE HOW TO LOAD CARDS FROM SAVE FILE; CREATE CARDDATA OBJECT FROM SAVED DATA AND ADD TO INVENTORY
+        inventory.Add(new CardData("Example Consumable", "Use me, I heal", 10, 0));
+        inventory.Add(new CardData("Example Passive", "+2 HP per second", 2, 0, 0, 0));
+
+
+        //Takes cards from inventory array and displays them on screen
+        foreach (CardData card in inventory)
+        {
+            GameObject CreatedCard = null;
+            if (Slot1.transform.childCount == 0){
+                CreatedCard = Instantiate(CardPrefab, Slot1.transform);      
+            }
+            else if (Slot2.transform.childCount == 0){
+                CreatedCard = Instantiate(CardPrefab, Slot2.transform);
+            }
+            else if (Slot3.transform.childCount == 0){
+                CreatedCard = Instantiate(CardPrefab, Slot3.transform);
+            }
+            else{
+                Debug.Log("BAD THINGS HAPPENED");
+            }
+
+            if (card.consumable){
+                CreatedCard.GetComponent<CardGUI>().Initialize(card, card.CardName, card.CardDescription, card.HealAmount, card.ManaAmount);
+            }
+            else{
+                CreatedCard.GetComponent<CardGUI>().Initialize(card.CardName, card.CardDescription, card.HPRegenChange, card.manaRegenChange, card.maxHPChange, card.maxManaChange);
+            }
+        }
     } 
 
     // Update is called once per frame
@@ -59,6 +97,17 @@ public class PlayerMain : MonoBehaviour
         ManaBar.maxValue = maxMana;
         ManaBar.value = mana;
         ManaCounter.text = mana + " / " + maxMana;
+
+        foreach(CardData c in inventory)
+        {
+            if(c.consumed)
+            {
+                Debug.Log(inventory.Count);
+                inventory.Remove(c);
+                Debug.Log("Card removed from inventory");
+                Debug.Log(inventory.Count);
+            }
+        }
     }
 
     /// <summary>
@@ -74,7 +123,7 @@ public class PlayerMain : MonoBehaviour
         ManaRegenPerSecond = defaultManaRegen;
         if (clearInventory)
         {
-            inventory = new List<Card>();
+            inventory = new List<CardData>();
         }
         if (healToDefault)
         {
@@ -85,12 +134,9 @@ public class PlayerMain : MonoBehaviour
 
     void RunEverySecond()
     {
-        foreach(Card card in inventory)
+        foreach(CardData card in inventory)
         {
-            if(card != null)
-            {
-                card.ApplyEffects(this);
-            }         
+            card.ApplyEffects(this);
         }
     }
 
