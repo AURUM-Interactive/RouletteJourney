@@ -208,5 +208,5 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   baseDamage: 10
-  baseSpeed: 8
-  baseRange: 6
+  baseSpeed: 16
+  baseRange: 10
