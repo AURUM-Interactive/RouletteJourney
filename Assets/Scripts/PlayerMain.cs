@@ -14,6 +14,8 @@ public class PlayerMain : MonoBehaviour
     public int mana = 30, maxMana = 50;
     public float ManaRegenPerSecond = 1;
 
+    public int currencyChipCount = 0;
+
     // Temp values, should not be touched
     private float tempHP = 0;
     private float tempMana = 0;

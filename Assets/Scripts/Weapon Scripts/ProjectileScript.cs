@@ -70,6 +70,7 @@ public class ProjectileScript : MonoBehaviour
 
             if(collision.CompareTag("Enemy"))
             {
+                collision.gameObject.GetComponent<LootDropScript>().DropLoot();
                 Destroy(collision.gameObject);
             }
         }
