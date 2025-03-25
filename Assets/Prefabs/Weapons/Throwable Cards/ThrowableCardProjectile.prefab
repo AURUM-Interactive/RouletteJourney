@@ -10,7 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 6404162316270538710}
   - component: {fileID: 3179498747549679539}
-  m_Layer: 0
+  m_Layer: 2
   m_Name: Sprite
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -99,7 +99,7 @@ GameObject:
   - component: {fileID: 8754450014547629629}
   - component: {fileID: 2604112664626731658}
   - component: {fileID: 7802261655076387920}
-  m_Layer: 0
+  m_Layer: 2
   m_Name: ThrowableCardProjectile
   m_TagString: PlayerProjectile
   m_Icon: {fileID: 0}

@@ -200,7 +200,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: dfe6b62b111332e45be8dc70f13e3928, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  movementSpeed: 1
+  movementSpeed: 5
   rb: {fileID: 5737888569786474688}
 --- !u!114 &3138978272015792803
 MonoBehaviour:
@@ -214,12 +214,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4ea46cde4f5becebc9d20f7fcfb366f0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  health: 5
-  maxHP: 10
+  CardPrefab: {fileID: 4263979687072741848, guid: 04cf7d0a6d406284f80d9119778c765c, type: 3}
+  health: 30
+  maxHP: 50
   HPRegenPerSecond: 1
-  mana: 5
-  maxMana: 10
+  mana: 30
+  maxMana: 50
   ManaRegenPerSecond: 1
+  currencyChipCount: 0
 --- !u!1001 &3243511260986982228
 PrefabInstance:
   m_ObjectHideFlags: 0
