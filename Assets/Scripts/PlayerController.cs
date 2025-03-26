@@ -1,26 +1,52 @@
+using System;
 using UnityEngine;
 
 public class PlayerController : MonoBehaviour 
 {
     //Movement speed
-    public float speed = 10;
+    public float movementSpeed = 10;
 
     //Rigidbody of player object
     public Rigidbody2D rb;
 
-    //Used FixedUpdate instead of Update for the love of god
+    // Animator of player sprite
+    private Animator playerSpriteAnimator;
+
+    private Vector2 moveDirection;
+
+    private void Start()
+    {
+        playerSpriteAnimator = GetComponent<Animator>();
+    }
+
+    public void Update()
+    {
+        GetInput();
+    }
+
     public void FixedUpdate()
     {
-        //Register inputs
-        float h = Input.GetAxis("Horizontal");
-        float v = Input.GetAxis("Vertical");
+        MovePlayer();
+        UpdatePlayerSpriteAnimator(moveDirection.x, moveDirection.y);
+    }
 
-        //Turn input into movement vector
-        Vector3 tempVect = new Vector3(h, v, 0);
-        tempVect = tempVect.normalized * speed * Time.deltaTime;
+    private void GetInput()
+    {
+        float horizontalInput = Input.GetAxisRaw("Horizontal");
+        float verticalInput = Input.GetAxisRaw("Vertical");
 
-        //Apply movement
-        rb.MovePosition(rb.transform.position + tempVect);
+        moveDirection = new Vector2(horizontalInput, verticalInput).normalized;
+    }
+
+    private void MovePlayer()
+    {
+        rb.linearVelocity = new Vector2(moveDirection.x * movementSpeed, moveDirection.y * movementSpeed);
+    }
+
+    private void UpdatePlayerSpriteAnimator(float horizontalInput, float verticalInput)
+    {
+        playerSpriteAnimator.SetFloat("xVelocity", horizontalInput);
+        playerSpriteAnimator.SetFloat("yVelocity", verticalInput);
     }
 }
 

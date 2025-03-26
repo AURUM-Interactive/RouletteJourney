@@ -53,8 +53,8 @@ public class SuicideEnemy : MonoBehaviour
             }
             else if (distanceToPlayer < minDistanceToPlayer - bufferZone)
             {
-                
 
+                
                 if (retreatCoroutine == null)
                 {
                     retreatCoroutine = StartCoroutine(RetreatAfterDelay());
