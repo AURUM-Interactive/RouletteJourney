@@ -48,7 +48,7 @@ public class PlayerMain : MonoBehaviour
 
         //TODO: OBSERVE HOW TO LOAD CARDS FROM SAVE FILE; CREATE CARDDATA OBJECT FROM SAVED DATA AND ADD TO INVENTORY
         inventory.Add(new CardData("Example Consumable", "Use me, I heal", 10, 0));
-        inventory.Add(new CardData("Example Passive", "+2 HP per second", 2, 0, 0, 0));
+        //inventory.Add(new CardData("Example Passive", "+1 HP per second", 1, 0, 0, 0));
 
 
         //Takes cards from inventory array and displays them on screen
