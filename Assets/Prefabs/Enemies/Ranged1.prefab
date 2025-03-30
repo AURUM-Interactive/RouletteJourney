@@ -14,7 +14,7 @@ GameObject:
   - component: {fileID: 4959347837637257746}
   - component: {fileID: 1642080514828808261}
   - component: {fileID: 8060402104332976657}
-  m_Layer: 2
+  m_Layer: 7
   m_Name: Ranged1
   m_TagString: Enemy
   m_Icon: {fileID: 0}
@@ -182,6 +182,10 @@ MonoBehaviour:
   reactionTime: 0.5
   IsRanged: 1
   IsMelee: 0
+  damage: 1
+  RaycastShouldIgnore:
+    serializedVersion: 2
+    m_Bits: 128
 --- !u!114 &8060402104332976657
 MonoBehaviour:
   m_ObjectHideFlags: 0
