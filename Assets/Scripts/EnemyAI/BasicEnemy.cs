@@ -11,6 +11,7 @@ public class SuicideEnemy : MonoBehaviour
     [SerializeField] public float reactionTime = 0.5f;
     [SerializeField] public bool IsRanged;
     [SerializeField] public bool IsMelee;
+    [SerializeField] public int damage = 1;
 
     private GameObject Player;
     private bool hasLineOfSight = false;
@@ -93,7 +94,7 @@ public class SuicideEnemy : MonoBehaviour
             PlayerMain playerMain = Player.GetComponent<PlayerMain>();
             if (playerMain != null)
             {
-                playerMain.health -= 1;
+                playerMain.health -= damage;
             }
 
             // Wait before next attack
@@ -111,7 +112,7 @@ public class SuicideEnemy : MonoBehaviour
             PlayerMain playerMain = Player.GetComponent<PlayerMain>();
             if (playerMain != null)
             {
-                playerMain.health -= 3;
+                playerMain.health -= damage;
             }
 
             // Wait before next attack
