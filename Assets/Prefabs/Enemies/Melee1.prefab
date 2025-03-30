@@ -182,6 +182,8 @@ MonoBehaviour:
   reactionTime: 0
   IsRanged: 0
   IsMelee: 1
+  damage: 1
+  DamagePopUp: {fileID: 7211430870384141781, guid: 4a20c2c7f360780479d858c703b83e68, type: 3}
 --- !u!114 &4447896666637138623
 MonoBehaviour:
   m_ObjectHideFlags: 0
