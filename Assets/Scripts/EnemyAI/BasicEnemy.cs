@@ -1,6 +1,4 @@
 using System.Collections;
-using System.Security.Cryptography;
-using UnityEditor.Experimental.GraphView;
 using UnityEngine;
 
 public class SuicideEnemy : MonoBehaviour
@@ -12,6 +10,7 @@ public class SuicideEnemy : MonoBehaviour
     [SerializeField] public bool IsRanged;
     [SerializeField] public bool IsMelee;
     [SerializeField] public int damage = 1;
+    [SerializeField] public LayerMask RaycastShouldIgnore;
 
     private GameObject Player;
     private bool hasLineOfSight = false;
@@ -67,7 +66,7 @@ public class SuicideEnemy : MonoBehaviour
             transform.position += (Vector3)moveDirection * idleSpeed * Time.deltaTime;
         }
 
-        RaycastHit2D ray = Physics2D.Raycast(transform.position, Player.transform.position - transform.position);
+        RaycastHit2D ray = Physics2D.Raycast(transform.position, Player.transform.position - transform.position, 9999f, ~RaycastShouldIgnore);
         if (ray.collider != null)
         {
             hasLineOfSight = ray.collider.CompareTag("Player");

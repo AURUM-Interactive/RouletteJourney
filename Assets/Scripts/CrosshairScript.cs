@@ -3,14 +3,11 @@ using UnityEngine;
 public class CrosshairScript : MonoBehaviour
 {
     SpriteRenderer cursorSprite;
-
-    BoxCollider2D boxCollider;
-
     Vector2 mousePosition;
+
     void Awake()
     {
         Cursor.visible = false;
-        boxCollider = GetComponent<BoxCollider2D>();
         cursorSprite = GetComponent<SpriteRenderer>();
     }
 
@@ -19,18 +16,24 @@ public class CrosshairScript : MonoBehaviour
     {
         mousePosition = Camera.main.ScreenToWorldPoint(Input.mousePosition);
         transform.position = mousePosition;
-    }
 
-    public void OnTriggerEnter2D(Collider2D collision)
-    {
-        if (collision.CompareTag("Enemy"))
+        RaycastHit2D mouseRaycast = Physics2D.Raycast(this.gameObject.transform.position, new Vector2());
+        
+        if (mouseRaycast.collider == null)
         {
-            cursorSprite.color = Color.red;
+            ChangeSpriteColor(Color.white);
+        }
+        else if (mouseRaycast.collider.CompareTag("Enemy"))
+        {
+            ChangeSpriteColor(Color.red);
         }
     }
 
-    private void OnTriggerExit2D(Collider2D collision)
+    private void ChangeSpriteColor(Color color)
     {
-        cursorSprite.color = Color.white;
+        if (cursorSprite.color != color)
+        {
+            cursorSprite.color = color;
+        }
     }
 }

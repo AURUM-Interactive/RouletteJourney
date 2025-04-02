@@ -14,7 +14,7 @@ GameObject:
   - component: {fileID: 206924973926119515}
   - component: {fileID: 212947548476244474}
   - component: {fileID: 4447896666637138623}
-  m_Layer: 2
+  m_Layer: 7
   m_Name: Melee1
   m_TagString: Enemy
   m_Icon: {fileID: 0}
@@ -182,6 +182,10 @@ MonoBehaviour:
   reactionTime: 0
   IsRanged: 0
   IsMelee: 1
+  damage: 1
+  RaycastShouldIgnore:
+    serializedVersion: 2
+    m_Bits: 128
 --- !u!114 &4447896666637138623
 MonoBehaviour:
   m_ObjectHideFlags: 0
