@@ -183,10 +183,7 @@ MonoBehaviour:
   IsRanged: 0
   IsMelee: 1
   damage: 1
-  RaycastShouldIgnore:
-    serializedVersion: 2
-    m_Bits: 128
---- !u!114 &4447896666637138623
+  DamagePopUp: {fileID: 7211430870384141781, guid: 4a20c2c7f360780479d858c703b83e68, type: 3}
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}

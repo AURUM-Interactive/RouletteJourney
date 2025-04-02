@@ -1,4 +1,7 @@
 using System.Collections;
+using System.Security.Cryptography;
+using TMPro;
+using UnityEditor.Experimental.GraphView;
 using UnityEngine;
 
 public class SuicideEnemy : MonoBehaviour
@@ -10,6 +13,7 @@ public class SuicideEnemy : MonoBehaviour
     [SerializeField] public bool IsRanged;
     [SerializeField] public bool IsMelee;
     [SerializeField] public int damage = 1;
+    [SerializeField] public GameObject DamagePopUp;
     [SerializeField] public LayerMask RaycastShouldIgnore;
 
     private GameObject Player;
@@ -90,11 +94,7 @@ public class SuicideEnemy : MonoBehaviour
             yield return new WaitUntil(CanPerformMeleeAttack);
 
             // Perform attack
-            PlayerMain playerMain = Player.GetComponent<PlayerMain>();
-            if (playerMain != null)
-            {
-                playerMain.health -= damage;
-            }
+            DamagePlayer();
 
             // Wait before next attack
             yield return new WaitForSeconds(1f);
@@ -108,14 +108,21 @@ public class SuicideEnemy : MonoBehaviour
             yield return new WaitUntil(CanPerformRangedAttack);
 
             // Perform attack
-            PlayerMain playerMain = Player.GetComponent<PlayerMain>();
-            if (playerMain != null)
-            {
-                playerMain.health -= damage;
-            }
+            DamagePlayer();
 
             // Wait before next attack
             yield return new WaitForSeconds(4f);
+        }
+    }
+
+    void DamagePlayer()
+    {
+        PlayerMain playerMain = Player.GetComponent<PlayerMain>();
+        if (playerMain != null)
+        {
+            var popUp = Instantiate(DamagePopUp, this.transform.position, Quaternion.identity);
+            popUp.GetComponent<TextMeshPro>().text = damage.ToString();
+            playerMain.health -= damage;
         }
     }
 

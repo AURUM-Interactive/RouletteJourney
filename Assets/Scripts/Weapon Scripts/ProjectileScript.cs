@@ -1,8 +1,12 @@
 using System;
+using TMPro;
 using UnityEngine;
 
 public class ProjectileScript : MonoBehaviour
 {
+    [SerializeField]
+    private GameObject damagePopUp;
+
     [SerializeField]
     private float baseDamage = 10;
 
@@ -72,6 +76,9 @@ public class ProjectileScript : MonoBehaviour
             {
                 collision.gameObject.GetComponent<LootDropScript>().DropLoot();
                 Destroy(collision.gameObject);
+             
+                var popUp = Instantiate(damagePopUp, transform.position, Quaternion.identity);
+                popUp.GetComponent<TextMeshPro>().text = CalculateDamage().ToString();
             }
         }
     }
