@@ -1,8 +1,10 @@
+using System.Linq;
 using TMPro;
 using Unity.VisualScripting;
 using UnityEditor;
 using UnityEngine;
 using UnityEngine.UI;
+using static UnityEngine.Rendering.GPUSort;
 
 public class CardGUI : MonoBehaviour
 {
@@ -32,10 +34,11 @@ public class CardGUI : MonoBehaviour
     /// <param name="manaregen"> Mana regeneration speed change </param>
     /// <param name="maxhp"> Maximum HP increase </param>
     /// <param name="maxmana"> Maximum mana increase </param>
-    public void Initialize(string name, string description, float hpregen, float manaregen, int maxhp, int maxmana)
+    public void Initialize(CardData inventoryCard, string name, string description, float hpregen, float manaregen, int maxhp, int maxmana)
     {
         CardName = name; 
         CardDescription = description;
+        inventoryInstance = inventoryCard;
         consumable = false;
         HPRegenChange = hpregen;
         manaRegenChange = manaregen;
@@ -128,6 +131,20 @@ public class CardGUI : MonoBehaviour
         player.ManaRegenPerSecond += manaRegenChange;
         player.maxHP += maxHPChange;
         player.maxMana += maxManaChange;
+    }
+
+    public void DiscardThis()
+    {
+        GamblingScreen GS = GameObject.Find("UserInterface").GetComponent<GamblingScreen>();
+        for(int i = 0; i < 3; i++)
+        {
+            if (GS.inventory[i] == inventoryInstance)
+            {
+                GS.inventory.SetValue(null, i);
+                Debug.Log("Card removed at " + i);
+            }
+        }
+        Destroy(this.gameObject);
     }
 
     // Update is called once per frame

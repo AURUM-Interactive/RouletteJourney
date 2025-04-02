@@ -62,7 +62,7 @@ public class PlayerMain : MonoBehaviour
         {
             GameObject CreatedCard = null;
             if (Slot1.transform.childCount == 0){
-                CreatedCard = Instantiate(CardPrefab, Slot1.transform);      
+                CreatedCard = Instantiate(CardPrefab, Slot1.transform);
             }
             else if (Slot2.transform.childCount == 0){
                 CreatedCard = Instantiate(CardPrefab, Slot2.transform);
@@ -78,7 +78,7 @@ public class PlayerMain : MonoBehaviour
                 CreatedCard.GetComponent<CardGUI>().Initialize(card, card.CardName, card.CardDescription, card.HealAmount, card.ManaAmount);
             }
             else{
-                CreatedCard.GetComponent<CardGUI>().Initialize(card.CardName, card.CardDescription, card.HPRegenChange, card.manaRegenChange, card.maxHPChange, card.maxManaChange);
+                CreatedCard.GetComponent<CardGUI>().Initialize(card, card.CardName, card.CardDescription, card.HPRegenChange, card.manaRegenChange, card.maxHPChange, card.maxManaChange);
             }
         }
     } 
