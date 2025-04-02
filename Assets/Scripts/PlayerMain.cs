@@ -14,7 +14,7 @@ public class PlayerMain : MonoBehaviour
     public int mana = 30, maxMana = 50;
     public float ManaRegenPerSecond = 1;
 
-    public int currencyChipCount = 0;
+    public int chipCount = 0;
 
     // Temp values, should not be touched
     private float tempHP = 0;
@@ -28,10 +28,15 @@ public class PlayerMain : MonoBehaviour
     
     // --------------
 
+    // Player Status UI
     private Slider HPBar, ManaBar;
     private TextMeshProUGUI HPCounter, ManaCounter;
 
+    // Inventory
     public List<CardData> inventory = new List<CardData>(3);
+
+    // Poker Chip Counter UI
+    private TextMeshProUGUI chipCounter;
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
@@ -40,6 +45,7 @@ public class PlayerMain : MonoBehaviour
         ManaBar = GameObject.Find("ManaBar").GetComponent<Slider>();
         HPCounter = GameObject.Find("HPCounter").GetComponent<TextMeshProUGUI>();
         ManaCounter = GameObject.Find("ManaCounter").GetComponent<TextMeshProUGUI>();
+        chipCounter = GameObject.Find("ChipCounterText").GetComponent<TextMeshProUGUI>();
 
         GameObject Slot1 = GameObject.Find("Card1Pos");
         GameObject Slot2 = GameObject.Find("Card2Pos");
@@ -96,9 +102,12 @@ public class PlayerMain : MonoBehaviour
         HPBar.maxValue = maxHP;
         HPBar.value = health;
         HPCounter.text = health + " / " + maxHP;
+        
         ManaBar.maxValue = maxMana;
         ManaBar.value = mana;
         ManaCounter.text = mana + " / " + maxMana;
+
+        chipCounter.text = chipCount.ToString();
 
         foreach(CardData c in inventory)
         {
