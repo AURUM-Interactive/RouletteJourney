@@ -94,7 +94,7 @@ public class SuicideEnemy : MonoBehaviour
             yield return new WaitUntil(CanPerformMeleeAttack);
 
             // Perform attack
-            DamagePlayer();
+            DamagePlayer(damage);
 
             // Wait before next attack
             yield return new WaitForSeconds(1f);
@@ -108,21 +108,19 @@ public class SuicideEnemy : MonoBehaviour
             yield return new WaitUntil(CanPerformRangedAttack);
 
             // Perform attack
-            DamagePlayer();
+            DamagePlayer(damage);
 
             // Wait before next attack
             yield return new WaitForSeconds(4f);
         }
     }
 
-    void DamagePlayer()
+    void DamagePlayer(int damage)
     {
         PlayerMain playerMain = Player.GetComponent<PlayerMain>();
         if (playerMain != null)
         {
-            var popUp = Instantiate(DamagePopUp, this.transform.position, Quaternion.identity);
-            popUp.GetComponent<TextMeshPro>().text = damage.ToString();
-            playerMain.health -= damage;
+            playerMain.TakeDamage(damage);
         }
     }
 

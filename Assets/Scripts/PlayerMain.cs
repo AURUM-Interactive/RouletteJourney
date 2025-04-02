@@ -38,6 +38,9 @@ public class PlayerMain : MonoBehaviour
     // Poker Chip Counter UI
     private TextMeshProUGUI chipCounter;
 
+    // popup
+    public GameObject DamagePopUp;
+
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
@@ -149,6 +152,13 @@ public class PlayerMain : MonoBehaviour
         {
             card.ApplyEffects(this);
         }
+    }
+
+    public void TakeDamage(int damageAmount)
+    {
+        var popUp = Instantiate(DamagePopUp, this.transform.position + new Vector3(0.5f, 0.5f, 0), Quaternion.identity);
+        popUp.GetComponent<TextMeshPro>().text = damageAmount.ToString();
+        health -= damageAmount;
     }
 
     void Regenerate()
