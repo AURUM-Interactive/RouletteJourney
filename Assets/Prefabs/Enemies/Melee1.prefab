@@ -13,8 +13,8 @@ GameObject:
   - component: {fileID: 1137841657407310866}
   - component: {fileID: 206924973926119515}
   - component: {fileID: 212947548476244474}
-  - component: {fileID: 4447896666637138623}
-  m_Layer: 7
+  - component: {fileID: 4938167492234670791}
+  m_Layer: 5
   m_Name: Melee1
   m_TagString: Enemy
   m_Icon: {fileID: 0}
@@ -184,6 +184,10 @@ MonoBehaviour:
   IsMelee: 1
   damage: 1
   DamagePopUp: {fileID: 7211430870384141781, guid: 4a20c2c7f360780479d858c703b83e68, type: 3}
+  RaycastShouldIgnore:
+    serializedVersion: 2
+    m_Bits: 0
+--- !u!114 &4938167492234670791
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
