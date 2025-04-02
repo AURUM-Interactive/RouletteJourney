@@ -183,10 +183,10 @@ MonoBehaviour:
   IsRanged: 1
   IsMelee: 0
   damage: 1
-  DamagePopUp: {fileID: 0}
+  DamagePopUp: {fileID: 7211430870384141781, guid: 4a20c2c7f360780479d858c703b83e68, type: 3}
   RaycastShouldIgnore:
     serializedVersion: 2
-    m_Bits: 0
+    m_Bits: 160
 --- !u!114 &8060402104332976657
 MonoBehaviour:
   m_ObjectHideFlags: 0

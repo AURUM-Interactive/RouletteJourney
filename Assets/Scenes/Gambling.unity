@@ -131,7 +131,6 @@ GameObject:
   - component: {fileID: 163146420}
   - component: {fileID: 163146419}
   - component: {fileID: 163146418}
-  - component: {fileID: 163146421}
   m_Layer: 5
   m_Name: Gamble2
   m_TagString: Untagged
@@ -253,18 +252,6 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 163146416}
   m_CullTransparentMesh: 1
---- !u!114 &163146421
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 163146416}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: e6204df13626c9742a5fa8c530f3d451, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1 &163679496
 GameObject:
   m_ObjectHideFlags: 0
@@ -703,7 +690,6 @@ GameObject:
   - component: {fileID: 1387929150}
   - component: {fileID: 1387929149}
   - component: {fileID: 1387929148}
-  - component: {fileID: 1387929151}
   m_Layer: 5
   m_Name: Gamble3
   m_TagString: Untagged
@@ -825,18 +811,6 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1387929146}
   m_CullTransparentMesh: 1
---- !u!114 &1387929151
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1387929146}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: e6204df13626c9742a5fa8c530f3d451, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1001 &1554600409
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -1211,7 +1185,6 @@ GameObject:
   - component: {fileID: 2145720798}
   - component: {fileID: 2145720797}
   - component: {fileID: 2145720796}
-  - component: {fileID: 2145720799}
   m_Layer: 5
   m_Name: Gamble1
   m_TagString: Untagged
@@ -1333,18 +1306,6 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2145720794}
   m_CullTransparentMesh: 1
---- !u!114 &2145720799
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2145720794}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: e6204df13626c9742a5fa8c530f3d451, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!222 &114759302152347209
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -2771,6 +2732,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 52dd1ed7679d3ad4ebf0fcb2a6fa8271, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  money: 100
+  gambleCost: 5
   cardPrefab: {fileID: 4263979687072741848, guid: 04cf7d0a6d406284f80d9119778c765c, type: 3}
   discardPrefab: {fileID: 1941812617398763589, guid: 5abed42d385f2194fb4a68401d276301, type: 3}
   Slot1: {fileID: 8374367819012543006}
