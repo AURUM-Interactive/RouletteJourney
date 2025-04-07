@@ -8,8 +8,9 @@ public class SuicideEnemy : MonoBehaviour
     public float activeSpeed = 3f;
     public float minDistanceToPlayer = 3f;
     public float reactionTime = 0.5f;
-    public bool IsRanged;
-    public bool IsMelee;
+    public bool IsRanged = false;
+    public bool IsMelee = false;
+    public bool IsBouncing = false;
     public int damage = 1;
     public GameObject DamagePopUp;
     public LayerMask RaycastShouldIgnore;
@@ -36,9 +37,13 @@ public class SuicideEnemy : MonoBehaviour
     {
         distanceToPlayer = Vector2.Distance(transform.position, Player.transform.position);
 
-
         timer -= Time.deltaTime;
-        if(hasLineOfSight == false && timer <= 0)
+        if((hasLineOfSight == false && IsBouncing == false) && timer <= 0)
+        {
+            timer = 0.5f;
+            MoveAround();
+        }
+        else if (timer <= 0)
         {
             timer = 0.5f;
             MoveAround();
@@ -47,7 +52,7 @@ public class SuicideEnemy : MonoBehaviour
 
     void FixedUpdate()
     {
-        if (hasLineOfSight)
+        if (hasLineOfSight && IsBouncing == false)
         {
             if (distanceToPlayer > minDistanceToPlayer + bufferZone)
             {
@@ -55,8 +60,6 @@ public class SuicideEnemy : MonoBehaviour
             }
             else if (distanceToPlayer < minDistanceToPlayer - bufferZone)
             {
-
-                
                 if (retreatCoroutine == null)
                 {
                     retreatCoroutine = StartCoroutine(RetreatAfterDelay());
@@ -70,6 +73,7 @@ public class SuicideEnemy : MonoBehaviour
 
         RaycastHit2D ray = Physics2D.Raycast(transform.position, Player.transform.position - transform.position, 9999f, ~RaycastShouldIgnore);
         Debug.DrawRay(transform.position, Player.transform.position - transform.position);
+
         Debug.Log(ray.collider);
         if (ray.collider != null)
         {
@@ -172,10 +176,14 @@ public class SuicideEnemy : MonoBehaviour
 
     private void OnCollisionEnter2D(Collision2D collision)
     {
-        if (IsMelee) return; // Disable if enemy is melee
+        if (IsMelee || IsRanged) return;
 
         if (collision.gameObject.tag == "Player")
         {
+            if(IsBouncing)
+            {
+                DamagePlayer(damage);
+            }
             StartCoroutine(DestroyAfterDelay());
         }
         else
