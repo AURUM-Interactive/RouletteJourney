@@ -13,8 +13,8 @@ GameObject:
   - component: {fileID: 1137841657407310866}
   - component: {fileID: 206924973926119515}
   - component: {fileID: 212947548476244474}
-  - component: {fileID: 4447896666637138623}
-  m_Layer: 2
+  - component: {fileID: 4938167492234670791}
+  m_Layer: 7
   m_Name: Melee1
   m_TagString: Enemy
   m_Icon: {fileID: 0}
@@ -30,7 +30,7 @@ Transform:
   m_GameObject: {fileID: 7885798370491962039}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 6.4900002, y: 2.13, z: 0}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 0.6452, y: 0.6179, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -182,7 +182,12 @@ MonoBehaviour:
   reactionTime: 0
   IsRanged: 0
   IsMelee: 1
---- !u!114 &4447896666637138623
+  damage: 1
+  DamagePopUp: {fileID: 7211430870384141781, guid: 4a20c2c7f360780479d858c703b83e68, type: 3}
+  RaycastShouldIgnore:
+    serializedVersion: 2
+    m_Bits: 160
+--- !u!114 &4938167492234670791
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
