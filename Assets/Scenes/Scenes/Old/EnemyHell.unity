@@ -1351,6 +1351,10 @@ PrefabInstance:
       propertyPath: maxMana
       value: 50
       objectReference: {fileID: 0}
+    - target: {fileID: 3138978272015792803, guid: 5132be2d36b23b843ae97ae02b15b3d0, type: 3}
+      propertyPath: DamagePopUp
+      value: 
+      objectReference: {fileID: 7211430870384141781, guid: 4a20c2c7f360780479d858c703b83e68, type: 3}
     - target: {fileID: 4664157874279375141, guid: 5132be2d36b23b843ae97ae02b15b3d0, type: 3}
       propertyPath: m_Name
       value: Player
