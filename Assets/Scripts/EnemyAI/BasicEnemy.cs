@@ -194,6 +194,8 @@ public class SuicideEnemy : MonoBehaviour
     private IEnumerator DestroyAfterDelay()
     {
         yield return new WaitForSeconds(0.5f);
+        var popUp = Instantiate(DamagePopUp, transform.position, Quaternion.identity);
+        popUp.GetComponent<TextMeshPro>().text = "Poof";
         Destroy(gameObject);
     }
 }
