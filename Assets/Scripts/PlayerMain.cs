@@ -41,6 +41,17 @@ public class PlayerMain : MonoBehaviour
     // popup
     public GameObject DamagePopUp;
 
+    // Player Controller Script
+
+    private Animator playerAnimator;
+    private PlayerController playerControllerScript;
+    private BoxCollider2D playerCollider;
+    private Rigidbody2D playerRigidBody;
+    public GameObject playerWeapon;
+
+    // Game over UI
+    public GameOverMenuScript GameOverMenuScript;
+
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
@@ -49,6 +60,11 @@ public class PlayerMain : MonoBehaviour
         HPCounter = GameObject.Find("HPCounter").GetComponent<TextMeshProUGUI>();
         ManaCounter = GameObject.Find("ManaCounter").GetComponent<TextMeshProUGUI>();
         chipCounter = GameObject.Find("ChipCounterText").GetComponent<TextMeshProUGUI>();
+
+        playerAnimator = GameObject.Find("Player").GetComponent<Animator>();
+        playerControllerScript = GameObject.Find("Player").GetComponent<PlayerController>();
+        playerCollider = GameObject.Find("Player").GetComponent<BoxCollider2D>();
+        playerRigidBody = GameObject.Find("Player").GetComponent<Rigidbody2D>();
 
         GameObject Slot1 = GameObject.Find("Card1Pos");
         GameObject Slot2 = GameObject.Find("Card2Pos");
@@ -96,7 +112,10 @@ public class PlayerMain : MonoBehaviour
             RunEverySecond(); // Apply card effects (increase maxHP)
             cooldown = 0;
         }
-        Regenerate();
+        if(health > 0)
+        {
+            Regenerate();
+        }
         UpdateUI();
     }
 
@@ -159,6 +178,25 @@ public class PlayerMain : MonoBehaviour
         var popUp = Instantiate(DamagePopUp, this.transform.position + new Vector3(0.5f, 0.5f, 0), Quaternion.identity);
         popUp.GetComponent<TextMeshPro>().text = damageAmount.ToString();
         health -= damageAmount;
+
+        if(health <= 0)
+        {
+            Death();
+        }
+    }
+
+    void Death()
+    {
+        playerControllerScript.enabled = false;
+        playerRigidBody.linearVelocity = Vector2.zero;
+        
+        playerCollider.enabled = false;
+        playerWeapon.SetActive(false);
+
+        playerAnimator.SetBool("isDead", true);
+        health = 0;
+
+        GameOverMenuScript.Setup();
     }
 
     void Regenerate()
