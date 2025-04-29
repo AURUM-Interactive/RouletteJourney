@@ -152,8 +152,8 @@ SpriteRenderer:
   m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
-  m_SortingLayerID: 1308318343
-  m_SortingLayer: 1
+  m_SortingLayerID: 0
+  m_SortingLayer: 0
   m_SortingOrder: 0
   m_Sprite: {fileID: 21300000, guid: 8765cd6b89e42cb4f993070b3f732e7b, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
@@ -222,6 +222,9 @@ MonoBehaviour:
   maxMana: 50
   ManaRegenPerSecond: 2
   chipCount: 0
+  DamagePopUp: {fileID: 7211430870384141781, guid: 4a20c2c7f360780479d858c703b83e68, type: 3}
+  playerWeapon: {fileID: 1219135532528411837}
+  GameOverMenuScript: {fileID: 0}
 --- !u!1001 &3243511260986982228
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -283,6 +286,11 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: b2e762e2cfc0719498d301459954c922, type: 3}
+--- !u!1 &1219135532528411837 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 4460948472445672425, guid: b2e762e2cfc0719498d301459954c922, type: 3}
+  m_PrefabInstance: {fileID: 3243511260986982228}
+  m_PrefabAsset: {fileID: 0}
 --- !u!4 &7685022305114040328 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 5162791342503171932, guid: b2e762e2cfc0719498d301459954c922, type: 3}

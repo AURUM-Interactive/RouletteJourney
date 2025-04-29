@@ -88,7 +88,7 @@ public abstract class EnemyLogic : MonoBehaviour
         RaycastHit2D ray = Physics2D.Raycast(transform.position, direction, 9999f, ~RaycastShouldIgnore);
 
         // Determine if the ray hit the player.
-        hasLineOfSight = ray.collider != null && ray.collider.CompareTag("Player");
+        hasLineOfSight = ray.collider != null && ray.collider.CompareTag("Player") && Player.GetComponent<PlayerMain>().health > 0;
 
         // Draw debug rays to visualize line of sight.
         if (hasLineOfSight)
