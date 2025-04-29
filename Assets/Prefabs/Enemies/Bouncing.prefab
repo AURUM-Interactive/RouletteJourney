@@ -14,6 +14,7 @@ GameObject:
   - component: {fileID: 5561244363520056718}
   - component: {fileID: 3187791011694562106}
   - component: {fileID: 3972795509544841968}
+  - component: {fileID: 3316574499935129661}
   m_Layer: 7
   m_Name: Bouncing
   m_TagString: Enemy
@@ -129,7 +130,7 @@ BoxCollider2D:
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
-    oldSize: {x: 2.5, y: 1.6666666}
+    oldSize: {x: 2.34375, y: 1.5625}
     newSize: {x: 3.75, y: 2.5}
     adaptiveTilingThreshold: 0.5
     drawMode: 0
@@ -198,3 +199,25 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   lootGameObject: {fileID: 6979698374790991934, guid: 16e0def2eaad07743adff1323fbbf846, type: 3}
+--- !u!95 &3316574499935129661
+Animator:
+  serializedVersion: 7
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5979639349373661589}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 0}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_AnimatePhysics: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorStateOnDisable: 0
+  m_WriteDefaultValuesOnDisable: 0
