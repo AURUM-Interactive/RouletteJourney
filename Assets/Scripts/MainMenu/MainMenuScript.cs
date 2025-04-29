@@ -7,6 +7,7 @@ public class MainMenuScript : MonoBehaviour
 {
 
     public string GameScene = "Sprint3";
+    public GameObject SettingsScreen;
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
@@ -27,7 +28,7 @@ public class MainMenuScript : MonoBehaviour
 
     public void ClickSettings()
     {
-        //TODO: open settings panel
+        SettingsScreen.SetActive(true);
     }
 
     public void ClickExit()
