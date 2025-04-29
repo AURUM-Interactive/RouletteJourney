@@ -21,11 +21,17 @@ public abstract class EnemyLogic : MonoBehaviour
     protected float pauseBeforeNextMove = 0.5f;
     private Coroutine retreatCoroutine;
 
+    protected Animator animator;
+    private Vector2 previousPosition;
+
     // Called when the script instance is being loaded. Initializes the Player reference.
     protected virtual void Start()
     {
         // Find the player object by tag.
         Player = GameObject.FindGameObjectWithTag("Player");
+
+        animator = GetComponent<Animator>();
+        previousPosition = transform.position;
     }
 
     // Called once per frame. Updates the distance to the player and handles movement logic.
@@ -42,7 +48,42 @@ public abstract class EnemyLogic : MonoBehaviour
         {
             timer = 0.5f;
             MoveAround();
+            AnimationMovement();
         }
+    }
+
+    protected void AnimationMovement()
+    {
+        Vector2 currentPosition = transform.position;
+        Vector2 movement = currentPosition - previousPosition;
+
+        if (movement.magnitude > 0.01f)
+        {
+            Vector2 normalizedDir = movement.normalized;
+            float angle = Mathf.Atan2(normalizedDir.y, normalizedDir.x) * Mathf.Rad2Deg;
+            angle = (angle + 360f) % 360f;
+
+            bool isRight = angle <= 30f || angle >= 330f;
+            bool isLeft = angle >= 150f && angle <= 210f;
+
+            if (isRight)
+            {
+                animator.SetFloat("MoveX", 1);
+                animator.SetFloat("MoveY", 0);
+            }
+            else if (isLeft)
+            {
+                animator.SetFloat("MoveX", -1);
+                animator.SetFloat("MoveY", 0);
+            }
+            else
+            {
+                animator.SetFloat("MoveX", 0);
+                animator.SetFloat("MoveY", normalizedDir.y > 0 ? 1 : -1);
+            }
+        }
+
+        previousPosition = currentPosition;
     }
 
     // Called at a fixed time interval. Handles enemy behavior based on line of sight.
@@ -57,6 +98,7 @@ public abstract class EnemyLogic : MonoBehaviour
         {
             // Otherwise, roam around.
             Roam();
+            AnimationMovement();
         }
 
         // Update the line of sight status.
@@ -164,6 +206,9 @@ public abstract class EnemyLogic : MonoBehaviour
         // If the player is far, move closer.
         if (distanceToPlayer > minDistanceToPlayer + bufferZone)
         {
+            Vector2 targetDirection = (Player.transform.position - transform.position).normalized;
+            moveDirection = targetDirection;
+
             transform.position = Vector2.MoveTowards(
                 transform.position,
                 Player.transform.position,
