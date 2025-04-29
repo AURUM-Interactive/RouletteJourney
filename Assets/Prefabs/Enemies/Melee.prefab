@@ -178,12 +178,12 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   idleSpeed: 0.5
   activeSpeed: 3
-  minDistanceToPlayer: 0
+  minDistanceToPlayer: 0.2
   reactionTime: 0
   DamagePopUp: {fileID: 7211430870384141781, guid: 4a20c2c7f360780479d858c703b83e68, type: 3}
   RaycastShouldIgnore:
     serializedVersion: 2
-    m_Bits: 160
+    m_Bits: 224
   damage: 20
   attackCooldown: 1
 --- !u!114 &6351886141448256663
