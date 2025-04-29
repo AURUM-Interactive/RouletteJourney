@@ -8,7 +8,7 @@ public class ExitDoorScript : MonoBehaviour
     {
         exitPopup = GameObject.Find("ExitPopup");
         exitPopup.SetActive(false);
-    }
+    } 
 
     private void OnTriggerEnter2D(Collider2D other)
     {

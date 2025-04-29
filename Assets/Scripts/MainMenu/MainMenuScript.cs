@@ -1,3 +1,6 @@
+using System.Collections;
+using System.IO;
+using System.Linq;
 using TMPro;
 using UnityEngine;
 using UnityEngine.SceneManagement;
@@ -5,8 +8,8 @@ using UnityEngine.UI;
 
 public class MainMenuScript : MonoBehaviour
 {
+    public string GameScene;
 
-    public string GameScene = "Sprint3";
     public GameObject SettingsScreen;
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
