@@ -1285,10 +1285,6 @@ PrefabInstance:
       propertyPath: m_Name
       value: UserInterface
       objectReference: {fileID: 0}
-    - target: {fileID: 403747548877000090, guid: c9dadea0a98177f44970a23bef05c06a, type: 3}
-      propertyPath: m_IsActive
-      value: 1
-      objectReference: {fileID: 0}
     - target: {fileID: 4189318805976500304, guid: c9dadea0a98177f44970a23bef05c06a, type: 3}
       propertyPath: m_AnchorMax.x
       value: 0
@@ -1304,78 +1300,6 @@ PrefabInstance:
     - target: {fileID: 4513264434065949755, guid: c9dadea0a98177f44970a23bef05c06a, type: 3}
       propertyPath: m_AnchorMax.y
       value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 5267042963035714191, guid: c9dadea0a98177f44970a23bef05c06a, type: 3}
-      propertyPath: m_SizeDelta.x
-      value: 31
-      objectReference: {fileID: 0}
-    - target: {fileID: 5267042963035714191, guid: c9dadea0a98177f44970a23bef05c06a, type: 3}
-      propertyPath: m_SizeDelta.y
-      value: 34.77
-      objectReference: {fileID: 0}
-    - target: {fileID: 5267042963035714191, guid: c9dadea0a98177f44970a23bef05c06a, type: 3}
-      propertyPath: m_AnchoredPosition.x
-      value: 1.4500122
-      objectReference: {fileID: 0}
-    - target: {fileID: 5267042963035714191, guid: c9dadea0a98177f44970a23bef05c06a, type: 3}
-      propertyPath: m_AnchoredPosition.y
-      value: -2.380005
-      objectReference: {fileID: 0}
-    - target: {fileID: 6677667214313401838, guid: c9dadea0a98177f44970a23bef05c06a, type: 3}
-      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.size
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 6677667214313401838, guid: c9dadea0a98177f44970a23bef05c06a, type: 3}
-      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Mode
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 6677667214313401838, guid: c9dadea0a98177f44970a23bef05c06a, type: 3}
-      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
-      value: 
-      objectReference: {fileID: 182683942}
-    - target: {fileID: 6677667214313401838, guid: c9dadea0a98177f44970a23bef05c06a, type: 3}
-      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_CallState
-      value: 2
-      objectReference: {fileID: 0}
-    - target: {fileID: 6677667214313401838, guid: c9dadea0a98177f44970a23bef05c06a, type: 3}
-      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
-      value: ExitButton
-      objectReference: {fileID: 0}
-    - target: {fileID: 6677667214313401838, guid: c9dadea0a98177f44970a23bef05c06a, type: 3}
-      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
-      value: GameOverMenuScript, Assembly-CSharp
-      objectReference: {fileID: 0}
-    - target: {fileID: 6677667214313401838, guid: c9dadea0a98177f44970a23bef05c06a, type: 3}
-      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgumentAssemblyTypeName
-      value: UnityEngine.Object, UnityEngine
-      objectReference: {fileID: 0}
-    - target: {fileID: 6806074205209268148, guid: c9dadea0a98177f44970a23bef05c06a, type: 3}
-      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.size
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 6806074205209268148, guid: c9dadea0a98177f44970a23bef05c06a, type: 3}
-      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Mode
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 6806074205209268148, guid: c9dadea0a98177f44970a23bef05c06a, type: 3}
-      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
-      value: 
-      objectReference: {fileID: 182683942}
-    - target: {fileID: 6806074205209268148, guid: c9dadea0a98177f44970a23bef05c06a, type: 3}
-      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_CallState
-      value: 2
-      objectReference: {fileID: 0}
-    - target: {fileID: 6806074205209268148, guid: c9dadea0a98177f44970a23bef05c06a, type: 3}
-      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
-      value: RestartButton
-      objectReference: {fileID: 0}
-    - target: {fileID: 6806074205209268148, guid: c9dadea0a98177f44970a23bef05c06a, type: 3}
-      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
-      value: GameOverMenuScript, Assembly-CSharp
-      objectReference: {fileID: 0}
-    - target: {fileID: 6806074205209268148, guid: c9dadea0a98177f44970a23bef05c06a, type: 3}
-      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgumentAssemblyTypeName
-      value: UnityEngine.Object, UnityEngine
       objectReference: {fileID: 0}
     - target: {fileID: 7140430254334083208, guid: c9dadea0a98177f44970a23bef05c06a, type: 3}
       propertyPath: m_Pivot.x
@@ -1728,11 +1652,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3686899056583863497, guid: d5802a66d992cf749ba2811420ad0859, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 5.4777904
+      value: -1.94
       objectReference: {fileID: 0}
     - target: {fileID: 3686899056583863497, guid: d5802a66d992cf749ba2811420ad0859, type: 3}
       propertyPath: m_LocalPosition.y
-      value: -0.8037286
+      value: -0.86
       objectReference: {fileID: 0}
     - target: {fileID: 3686899056583863497, guid: d5802a66d992cf749ba2811420ad0859, type: 3}
       propertyPath: m_LocalPosition.z
@@ -1765,6 +1689,10 @@ PrefabInstance:
     - target: {fileID: 3686899056583863497, guid: d5802a66d992cf749ba2811420ad0859, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7822507964821708783, guid: d5802a66d992cf749ba2811420ad0859, type: 3}
+      propertyPath: minDistanceToPlayer
+      value: 0.2
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []

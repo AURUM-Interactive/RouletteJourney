@@ -46,8 +46,10 @@ public class PlayerMain : MonoBehaviour
     private Animator playerAnimator;
     private PlayerController playerControllerScript;
     private BoxCollider2D playerCollider;
+    private Rigidbody2D playerRigidBody;
     public GameObject playerWeapon;
 
+    // Game over UI
     public GameOverMenuScript GameOverMenuScript;
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
@@ -62,6 +64,7 @@ public class PlayerMain : MonoBehaviour
         playerAnimator = GameObject.Find("Player").GetComponent<Animator>();
         playerControllerScript = GameObject.Find("Player").GetComponent<PlayerController>();
         playerCollider = GameObject.Find("Player").GetComponent<BoxCollider2D>();
+        playerRigidBody = GameObject.Find("Player").GetComponent<Rigidbody2D>();
 
         GameObject Slot1 = GameObject.Find("Card1Pos");
         GameObject Slot2 = GameObject.Find("Card2Pos");
@@ -185,6 +188,8 @@ public class PlayerMain : MonoBehaviour
     void Death()
     {
         playerControllerScript.enabled = false;
+        playerRigidBody.linearVelocity = Vector2.zero;
+        
         playerCollider.enabled = false;
         playerWeapon.SetActive(false);
 
