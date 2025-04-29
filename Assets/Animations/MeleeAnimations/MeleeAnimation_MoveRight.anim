@@ -6,7 +6,7 @@ AnimationClip:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: PlayerSprite_MoveLeft
+  m_Name: MeleeAnimation_MoveRight
   serializedVersion: 7
   m_Legacy: 0
   m_Compressed: 0
@@ -21,7 +21,7 @@ AnimationClip:
   - serializedVersion: 2
     curve:
     - time: 0
-      value: {fileID: -215399338774706973, guid: 27afd546d815a9e409ef6e4fa869617b, type: 3}
+      value: {fileID: 21300000, guid: 21ab09987db573149947e9e1f98cf1eb, type: 3}
     attribute: m_Sprite
     path: 
     classID: 212
@@ -44,7 +44,7 @@ AnimationClip:
       isIntCurve: 0
       isSerializeReferenceCurve: 0
     pptrCurveMapping:
-    - {fileID: -215399338774706973, guid: 27afd546d815a9e409ef6e4fa869617b, type: 3}
+    - {fileID: 21300000, guid: 21ab09987db573149947e9e1f98cf1eb, type: 3}
   m_AnimationClipSettings:
     serializedVersion: 2
     m_AdditiveReferencePoseClip: {fileID: 0}
