@@ -1,9 +1,4 @@
-using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.UI;
-using TMPro;
-using Unity.VisualScripting;
-using UnityEditor.Tilemaps;
 
 public class GamblingScreen : MonoBehaviour
 {
