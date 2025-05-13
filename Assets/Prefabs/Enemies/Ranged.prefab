@@ -184,6 +184,7 @@ MonoBehaviour:
   RaycastShouldIgnore:
     serializedVersion: 2
     m_Bits: 160
+  rb: {fileID: 7009305513633666871}
   damage: 1
   attackCooldown: 4
 --- !u!114 &7042499550351516904

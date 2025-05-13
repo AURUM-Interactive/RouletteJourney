@@ -43,7 +43,7 @@ public class SuicideEnemy : EnemyLogic
     // Coroutine to destroy the enemy after a short delay
     private IEnumerator DestroyAfterDelay()
     {
-        yield return new WaitForSeconds(0.5f); // Wait for 0.5 seconds
+        yield return new WaitForSeconds(0.1f); // Wait for 0.5 seconds
         var popUp = Instantiate(DamagePopUp, transform.position, Quaternion.identity); // Create damage popup
         popUp.GetComponent<TextMeshPro>().text = "Poof"; // Set popup text
         Destroy(gameObject); // Destroy the enemy object

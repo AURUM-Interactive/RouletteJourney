@@ -17,8 +17,16 @@ public class MeleeEnemy : EnemyLogic
     // Defines behavior when engaging the player
     protected override void EngageBehavior()
     {
-        ApproachPlayer(); // Move towards the player
+        if (distanceToPlayer > minDistanceToPlayer + bufferZone)
+        {
+            MoveTowardPlayer();
+        }
+        else
+        {
+            StopMovement(); // Idle when in optimal range
+        }
     }
+
 
     // Coroutine to handle melee attack logic
     private IEnumerator MeleeAttackRoutine()

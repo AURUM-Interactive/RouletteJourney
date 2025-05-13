@@ -22,7 +22,9 @@ public abstract class EnemyLogic : MonoBehaviour
     private Coroutine retreatCoroutine;
 
     protected Animator animator;
-    private Vector2 previousPosition;
+    public Rigidbody2D rb;
+
+
 
     // Called when the script instance is being loaded. Initializes the Player reference.
     protected virtual void Start()
@@ -31,7 +33,6 @@ public abstract class EnemyLogic : MonoBehaviour
         Player = GameObject.FindGameObjectWithTag("Player");
 
         animator = GetComponent<Animator>();
-        previousPosition = transform.position;
     }
 
     // Called once per frame. Updates the distance to the player and handles movement logic.
@@ -46,20 +47,16 @@ public abstract class EnemyLogic : MonoBehaviour
         // If the timer reaches zero, reset it and move around.
         if (timer <= 0)
         {
-            timer = 0.5f;
+            timer = 1f;
             MoveAround();
-            AnimationMovement();
         }
     }
 
     protected void AnimationMovement()
     {
-        Vector2 currentPosition = transform.position;
-        Vector2 movement = currentPosition - previousPosition;
-
-        if (movement.magnitude > 0.01f)
+        if (moveDirection.magnitude > 0.01f)
         {
-            Vector2 normalizedDir = movement.normalized;
+            Vector2 normalizedDir = moveDirection.normalized;
             float angle = Mathf.Atan2(normalizedDir.y, normalizedDir.x) * Mathf.Rad2Deg;
             angle = (angle + 360f) % 360f;
 
@@ -82,9 +79,8 @@ public abstract class EnemyLogic : MonoBehaviour
                 animator.SetFloat("MoveY", normalizedDir.y > 0 ? 1 : -1);
             }
         }
-
-        previousPosition = currentPosition;
     }
+
 
     // Called at a fixed time interval. Handles enemy behavior based on line of sight.
     protected virtual void FixedUpdate()
@@ -98,7 +94,6 @@ public abstract class EnemyLogic : MonoBehaviour
         {
             // Otherwise, roam around.
             Roam();
-            AnimationMovement();
         }
 
         // Update the line of sight status.
@@ -110,6 +105,7 @@ public abstract class EnemyLogic : MonoBehaviour
     {
         // Move in the current direction at idle speed.
         transform.position += (Vector3)moveDirection * idleSpeed * Time.deltaTime;
+        
     }
 
     // Updates the enemy's movement direction randomly.
@@ -117,6 +113,7 @@ public abstract class EnemyLogic : MonoBehaviour
     {
         // Pick a random direction and move towards it.
         moveDirection = Random.insideUnitCircle.normalized;
+        AnimationMovement();
         transform.position = Vector2.MoveTowards(transform.position, moveDirection, idleSpeed * Time.deltaTime);
     }
 
@@ -189,6 +186,26 @@ public abstract class EnemyLogic : MonoBehaviour
         return directionAway;
     }
 
+    
+
+    // Moves the enemy closer to the player if they are outside the minimum distance.
+    protected void MoveTowardPlayer()
+    {
+        Vector2 targetDirection = (Player.transform.position - transform.position).normalized;
+        moveDirection = targetDirection;
+        AnimationMovement();
+
+        transform.position = Vector2.MoveTowards(
+            transform.position,
+            Player.transform.position,
+            activeSpeed * Time.fixedDeltaTime);
+    }
+
+    protected void StopMovement()
+    {
+        moveDirection = Vector2.zero;
+    }
+
     // Attempts to initiate a retreat if the player is too close.
     protected void TryRetreat()
     {
@@ -200,27 +217,6 @@ public abstract class EnemyLogic : MonoBehaviour
         }
     }
 
-    // Moves the enemy closer to the player if they are outside the minimum distance.
-    protected void ApproachPlayer()
-    {
-        // If the player is far, move closer.
-        if (distanceToPlayer > minDistanceToPlayer + bufferZone)
-        {
-            Vector2 targetDirection = (Player.transform.position - transform.position).normalized;
-            moveDirection = targetDirection;
-
-            transform.position = Vector2.MoveTowards(
-                transform.position,
-                Player.transform.position,
-                activeSpeed * Time.fixedDeltaTime);
-        }
-        else
-        {
-            // Otherwise, attempt to retreat.
-            TryRetreat();
-        }
-    }
-
     // Inflicts damage on the player by calling their TakeDamage method.
     protected void DamagePlayer(int damage)
     {
@@ -228,5 +224,15 @@ public abstract class EnemyLogic : MonoBehaviour
         var playerMain = Player.GetComponent<PlayerMain>();
         if (playerMain != null)
             playerMain.TakeDamage(damage);
+    }
+
+    private void OnCollisionStay2D(Collision2D collision)
+    {
+        if (collision.gameObject.CompareTag("Player"))
+        {
+            // Prevent movement caused by collision with player
+            rb.linearVelocity = Vector2.zero;
+            rb.angularVelocity = 0f;
+        }
     }
 }
