@@ -2,8 +2,12 @@ using UnityEngine;
 using UnityEngine.SceneManagement;
 public class GameOverMenuScript : MonoBehaviour
 {
-    [SerializeField]
     AudioManager audioManager;
+
+    private void Awake()
+    {
+        audioManager = GameObject.Find("AudioManager").GetComponent<AudioManager>();
+    }
 
     void OnEnable()
     {
