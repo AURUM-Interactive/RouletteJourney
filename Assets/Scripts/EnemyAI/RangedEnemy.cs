@@ -17,8 +17,20 @@ public class RangedEnemy : EnemyLogic
     // Defines behavior when engaging the player
     protected override void EngageBehavior()
     {
-        ApproachPlayer(); // Move towards the player
+        if (distanceToPlayer < minDistanceToPlayer - bufferZone)
+        {
+            TryRetreat();
+        }
+        else if (distanceToPlayer > minDistanceToPlayer + bufferZone)
+        {
+            MoveTowardPlayer();
+        }
+        else
+        {
+            StopMovement(); // Idle when in optimal range
+        }
     }
+
 
     // Coroutine for ranged attack logic
     private IEnumerator RangedAttackRoutine()
