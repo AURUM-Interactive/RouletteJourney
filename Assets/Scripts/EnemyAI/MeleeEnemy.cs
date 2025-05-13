@@ -26,7 +26,7 @@ public class MeleeEnemy : EnemyLogic
         while (true) // Infinite loop for continuous attack checks
         {
             // Wait until the player is within attack range and visible
-            yield return new WaitUntil(() => distanceToPlayer <= 1f && hasLineOfSight);
+            yield return new WaitUntil(() => distanceToPlayer <= 1.5f && hasLineOfSight);
             DamagePlayer(damage); // Deal damage to the player
             yield return new WaitForSeconds(attackCooldown); // Wait for the cooldown duration
         }

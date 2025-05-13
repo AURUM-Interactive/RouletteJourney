@@ -5,10 +5,12 @@ public class CrosshairScript : MonoBehaviour
     SpriteRenderer cursorSprite;
     Vector2 mousePosition;
 
+    PlayerMain PlayerMain;
     void Awake()
     {
         Cursor.visible = false;
         cursorSprite = GetComponent<SpriteRenderer>();
+        PlayerMain = GameObject.Find("Player").GetComponent<PlayerMain>();
     }
 
     // Update is called once per frame
@@ -26,6 +28,12 @@ public class CrosshairScript : MonoBehaviour
         else if (mouseRaycast.collider.CompareTag("Enemy"))
         {
             ChangeSpriteColor(Color.red);
+        }
+
+        if(PlayerMain.health <= 0)
+        {
+            Cursor.visible = true;
+            this.gameObject.GetComponent<SpriteRenderer>().enabled = false;
         }
     }
 
