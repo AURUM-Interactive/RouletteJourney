@@ -14,6 +14,9 @@ public class PlayerController : MonoBehaviour
 
     private Vector2 moveDirection;
 
+    [SerializeField]
+    GameObject pauseMenu;
+
     private void Start()
     {
         playerSpriteAnimator = GetComponent<Animator>();
@@ -36,6 +39,12 @@ public class PlayerController : MonoBehaviour
         float verticalInput = Input.GetAxisRaw("Vertical");
 
         moveDirection = new Vector2(horizontalInput, verticalInput).normalized;
+
+        if (Input.GetKeyDown(KeyCode.Escape))
+        {
+            Time.timeScale = !pauseMenu.activeSelf ? 0 : 1;
+            pauseMenu.SetActive(!pauseMenu.activeSelf);
+        }
     }
 
     private void MovePlayer()
