@@ -17,11 +17,7 @@ public class MeleeEnemy : EnemyLogic
     // Defines behavior when engaging the player
     protected override void EngageBehavior()
     {
-        if (distanceToPlayer < minDistanceToPlayer - bufferZone)
-        {
-            TryRetreat();
-        }
-        else if (distanceToPlayer > minDistanceToPlayer + bufferZone)
+        if (distanceToPlayer > minDistanceToPlayer + bufferZone)
         {
             MoveTowardPlayer();
         }
