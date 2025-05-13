@@ -31,5 +31,6 @@ public class PauseMenuScript : MonoBehaviour
     public void ExitButton()
     {
         SceneManager.LoadScene("MainMenu");
+        Time.timeScale = 1;
     }
 }
