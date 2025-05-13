@@ -1,9 +1,16 @@
 using UnityEngine;
+using UnityEngine.Audio;
 using UnityEngine.SceneManagement;
-public class GameOverMenuScript : MonoBehaviour
+
+public class PauseMenuScript : MonoBehaviour
 {
-    [SerializeField]
+
     AudioManager audioManager;
+
+    private void Awake()
+    {
+        audioManager = GameObject.Find("AudioManager").GetComponent<AudioManager>();
+    }
 
     void OnEnable()
     {
@@ -15,14 +22,10 @@ public class GameOverMenuScript : MonoBehaviour
         audioManager.TogglePausedAudio(false);
     }
 
-    public void Setup()
+    public void ContinueButton()
     {
-        gameObject.SetActive(true);
-    }
-
-    public void RestartButton()
-    {
-        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
+        gameObject.SetActive(false);
+        Time.timeScale = 1;
     }
 
     public void ExitButton()
