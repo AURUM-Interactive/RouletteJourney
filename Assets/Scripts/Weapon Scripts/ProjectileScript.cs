@@ -57,7 +57,7 @@ public class ProjectileScript : MonoBehaviour
     /// </summary>
     public void ModifyDamageAdditive(float damageValue)
     {
-        bonusDamage *= damageValue;
+        bonusDamage += damageValue;
     }
 
     private float CalculateDamage()
