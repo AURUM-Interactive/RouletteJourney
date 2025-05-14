@@ -54,8 +54,32 @@ public class PlayerController : MonoBehaviour
 
     private void UpdatePlayerSpriteAnimator(float horizontalInput, float verticalInput)
     {
-        playerSpriteAnimator.SetFloat("xVelocity", horizontalInput);
-        playerSpriteAnimator.SetFloat("yVelocity", verticalInput);
+        
+
+        playerSpriteAnimator.SetInteger("xVelocity", normalizeDirection(horizontalInput));
+        playerSpriteAnimator.SetInteger("yVelocity", normalizeDirection(verticalInput));
+    }
+
+    int normalizeDirection(float direction)
+    {
+        int xDirection;
+        if (direction != 0)
+        {
+            if (direction > 0)
+            {
+                xDirection = 1;
+            }
+            else
+            {
+                xDirection = -1;
+            }
+        }
+        else
+        {
+            xDirection = 0;
+        }
+
+        return xDirection;
     }
 }
 
