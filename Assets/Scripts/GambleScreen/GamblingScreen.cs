@@ -23,9 +23,9 @@ public class GamblingScreen : MonoBehaviour
 
         // Array of discard offset vectors relative to each slot
         Vector3[] discardOffsets = new Vector3[3];
-        discardOffsets[0] = new Vector3(Slot1.transform.localPosition.x - 200, Slot1.transform.position.y + 20, 0);
-        discardOffsets[1] = new Vector3(Slot2.transform.localPosition.x, Slot2.transform.position.y + 20, 0);
-        discardOffsets[2] = new Vector3(Slot3.transform.localPosition.x + 200, Slot3.transform.position.y + 20, 0);
+        discardOffsets[0] = new Vector3(Slot1.transform.localPosition.x - 195, Slot1.transform.localPosition.y + 500, 0);
+        discardOffsets[1] = new Vector3(Slot2.transform.localPosition.x, Slot2.transform.localPosition.y + 500, 0);
+        discardOffsets[2] = new Vector3(Slot3.transform.localPosition.x + 195, Slot3.transform.localPosition.y + 500, 0);
 
         // Loop through the first 3 inventory slots
         for (int i = 0; i < 3; i++)
