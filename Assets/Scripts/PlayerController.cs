@@ -12,7 +12,8 @@ public class PlayerController : MonoBehaviour
     // Animator of player sprite
     private Animator playerSpriteAnimator;
 
-    private Vector2 moveDirection;
+    private Vector2 moveInput;
+    private Vector2 lastMoveDirection;
 
     [SerializeField]
     GameObject pauseMenu;
@@ -25,12 +26,12 @@ public class PlayerController : MonoBehaviour
     public void Update()
     {
         GetInput();
+        UpdatePlayerSpriteAnimator();
     }
 
     public void FixedUpdate()
     {
         MovePlayer();
-        UpdatePlayerSpriteAnimator(moveDirection.x, moveDirection.y);
     }
 
     private void GetInput()
@@ -38,7 +39,12 @@ public class PlayerController : MonoBehaviour
         float horizontalInput = Input.GetAxisRaw("Horizontal");
         float verticalInput = Input.GetAxisRaw("Vertical");
 
-        moveDirection = new Vector2(horizontalInput, verticalInput).normalized;
+        if (moveInput.magnitude != 0)
+        {
+            lastMoveDirection = moveInput;
+        }
+
+        moveInput = new Vector2(horizontalInput, verticalInput).normalized;
 
         if (Input.GetKeyDown(KeyCode.Escape))
         {
@@ -49,15 +55,18 @@ public class PlayerController : MonoBehaviour
 
     private void MovePlayer()
     {
-        rb.linearVelocity = new Vector2(moveDirection.x * movementSpeed, moveDirection.y * movementSpeed);
+        rb.linearVelocity = moveInput * movementSpeed;
     }
 
-    private void UpdatePlayerSpriteAnimator(float horizontalInput, float verticalInput)
+    private void UpdatePlayerSpriteAnimator()
     {
-        
+        playerSpriteAnimator.SetFloat("MoveX", moveInput.x);
+        playerSpriteAnimator.SetFloat("MoveY", moveInput.y);
+        playerSpriteAnimator.SetFloat("MoveMagnitude", moveInput.magnitude);
+        playerSpriteAnimator.SetFloat("LastMoveX", lastMoveDirection.x);
+        playerSpriteAnimator.SetFloat("LastMoveY", lastMoveDirection.y);
 
-        playerSpriteAnimator.SetInteger("xVelocity", normalizeDirection(horizontalInput));
-        playerSpriteAnimator.SetInteger("yVelocity", normalizeDirection(verticalInput));
+        Debug.Log($"x: {lastMoveDirection}");
     }
 
     int normalizeDirection(float direction)
