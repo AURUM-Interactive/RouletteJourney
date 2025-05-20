@@ -183,6 +183,10 @@ public class PlayerMain : MonoBehaviour
         {
             Death();
         }
+        else
+        {
+            playerAnimator.SetTrigger("TakingDamage");
+        }
     }
 
     void Death()
