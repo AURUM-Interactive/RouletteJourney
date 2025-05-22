@@ -52,36 +52,6 @@ public abstract class EnemyLogic : MonoBehaviour
         }
     }
 
-    protected void AnimationMovement()
-    {
-        if (moveDirection.magnitude > 0.01f)
-        {
-            Vector2 normalizedDir = moveDirection.normalized;
-            float angle = Mathf.Atan2(normalizedDir.y, normalizedDir.x) * Mathf.Rad2Deg;
-            angle = (angle + 360f) % 360f;
-
-            bool isRight = angle <= 30f || angle >= 330f;
-            bool isLeft = angle >= 150f && angle <= 210f;
-
-            if (isRight)
-            {
-                animator.SetFloat("MoveX", 1);
-                animator.SetFloat("MoveY", 0);
-            }
-            else if (isLeft)
-            {
-                animator.SetFloat("MoveX", -1);
-                animator.SetFloat("MoveY", 0);
-            }
-            else
-            {
-                animator.SetFloat("MoveX", 0);
-                animator.SetFloat("MoveY", normalizedDir.y > 0 ? 1 : -1);
-            }
-        }
-    }
-
-
     // Called at a fixed time interval. Handles enemy behavior based on line of sight.
     protected virtual void FixedUpdate()
     {
@@ -99,6 +69,8 @@ public abstract class EnemyLogic : MonoBehaviour
         // Update the line of sight status.
         UpdateLineOfSight();
     }
+
+    protected abstract void AnimationMovement();
 
     // Handles roaming behavior when the enemy has no specific target.
     protected void Roam()
