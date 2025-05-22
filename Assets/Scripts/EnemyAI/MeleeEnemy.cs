@@ -27,6 +27,34 @@ public class MeleeEnemy : EnemyLogic
         }
     }
 
+    protected override void AnimationMovement()
+    {
+        if (moveDirection.magnitude > 0.01f)
+        {
+            Vector2 normalizedDir = moveDirection.normalized;
+            float angle = Mathf.Atan2(normalizedDir.y, normalizedDir.x) * Mathf.Rad2Deg;
+            angle = (angle + 360f) % 360f;
+
+            bool isRight = angle <= 30f || angle >= 330f;
+            bool isLeft = angle >= 150f && angle <= 210f;
+
+            if (isRight)
+            {
+                animator.SetFloat("MoveX", 1);
+                animator.SetFloat("MoveY", 0);
+            }
+            else if (isLeft)
+            {
+                animator.SetFloat("MoveX", -1);
+                animator.SetFloat("MoveY", 0);
+            }
+            else
+            {
+                animator.SetFloat("MoveX", 0);
+                animator.SetFloat("MoveY", normalizedDir.y > 0 ? 1 : -1);
+            }
+        }
+    }
 
     // Coroutine to handle melee attack logic
     private IEnumerator MeleeAttackRoutine()
