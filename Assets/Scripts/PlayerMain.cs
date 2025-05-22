@@ -52,6 +52,20 @@ public class PlayerMain : MonoBehaviour
     // Game over UI
     public GameOverMenuScript GameOverMenuScript;
 
+    List<CardData> possibleCards = new List<CardData> {
+    new CardData("Small heal","Heals you a small amount.",12,0),
+    new CardData("Large heal","Heals you a significant amount.",35,0),
+    new CardData("Small mana","Gives you a small Mana boost.",0,10),
+    new CardData("Large mana","Gives you a decent amount of Mana.",0,30),
+    new CardData("Vampire","Converts a small amount of Mana into HP",10,-10),
+    new CardData("Glass cannon","Turns 20 health into 30 Mana",-20,30),
+    new CardData("Boost","Gives a small amount of Mana and HP",12,12),
+    // end consumables
+    new CardData("Blessing", "You have been blessed by the RNG gods, and all stats have been increased.", 2, 2, 10, 10),
+    new CardData("Curse", "You have been cursed! Stats are decreased.", -0.5f , -0.5f , -5, -5),
+    new CardData("Eat your veggies", "You have a good diet consisting of vegetables, you regain HP faster.", 3, 0, 0, 0)
+    };
+    
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
@@ -70,9 +84,9 @@ public class PlayerMain : MonoBehaviour
         GameObject Slot2 = GameObject.Find("Card2Pos");
         GameObject Slot3 = GameObject.Find("Card3Pos");
 
-
-        //TODO: OBSERVE HOW TO LOAD CARDS FROM SAVE FILE; CREATE CARDDATA OBJECT FROM SAVED DATA AND ADD TO INVENTORY
-        inventory.Add(new CardData("Example Consumable", "Use me, I heal", 10, 0));
+        inventory.Add(possibleCards[Random.Range(0, possibleCards.Count)]);
+        inventory.Add(possibleCards[Random.Range(0, possibleCards.Count)]);
+        inventory.Add(possibleCards[Random.Range(0, possibleCards.Count)]);
         //inventory.Add(new CardData("Example Passive", "+1 HP per second", 1, 0, 0, 0));
 
 
