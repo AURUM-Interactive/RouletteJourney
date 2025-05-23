@@ -6,6 +6,8 @@ public class AudioManager : MonoBehaviour
     [SerializeField]
     AudioMixer audioMixer;
 
+    AudioSource musicAudioSource;
+
     [SerializeField]
     AudioMixerSnapshot gameRunningSnapshot, gamePausedSnapshot;
 
@@ -14,7 +16,15 @@ public class AudioManager : MonoBehaviour
     [SerializeField]
     float PauseOutTime = 0.25f;
 
-    public static AudioManager Instance;
+    [Header("Music Tracks")]
+
+    [SerializeField]
+    AudioClip GameplayTheme;
+
+    [SerializeField]
+    AudioClip DeathTheme;
+
+    //public static AudioManager Instance;
 
     private void Awake()
     {
@@ -28,6 +38,11 @@ public class AudioManager : MonoBehaviour
         //DontDestroyOnLoad(gameObject);
     }
 
+    private void Start()
+    {
+        musicAudioSource = GetComponent<AudioSource>();
+    }
+
     public void TogglePausedAudio(bool value)
     {
         if(value)
@@ -38,5 +53,17 @@ public class AudioManager : MonoBehaviour
         {
             gameRunningSnapshot.TransitionTo(PauseOutTime);
         }
+    }
+
+    public void StartGameplayTheme()
+    {
+        musicAudioSource.clip = GameplayTheme;
+    }
+
+    public void StartDeathTheme()
+    {
+        musicAudioSource.clip = DeathTheme;
+        musicAudioSource.volume = 1;
+        musicAudioSource.PlayDelayed(0.5f);
     }
 }

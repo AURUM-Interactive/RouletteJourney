@@ -50,6 +50,8 @@ MonoBehaviour:
   gamePausedSnapshot: {fileID: 8525988476246516188, guid: 705d59022523d5c47a72487c88a3e0bf, type: 2}
   PauseInTime: 0.5
   PauseOutTime: 0.25
+  GameplayTheme: {fileID: 8300000, guid: 0c108c8396e4a2c41b9df8454c7e2587, type: 3}
+  DeathTheme: {fileID: 8300000, guid: 60c402a1b9823b44e981b52aecccf185, type: 3}
 --- !u!82 &7982609592603053606
 AudioSource:
   m_ObjectHideFlags: 0
