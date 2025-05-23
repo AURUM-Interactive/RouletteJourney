@@ -221,7 +221,7 @@ MonoBehaviour:
   HPRegenPerSecond: 1
   mana: 30
   maxMana: 50
-  ManaRegenPerSecond: 2
+  ManaRegenPerSecond: 4
   chipCount: 0
   DamagePopUp: {fileID: 7211430870384141781, guid: 4a20c2c7f360780479d858c703b83e68, type: 3}
   playerWeapon: {fileID: 1219135532528411837}
