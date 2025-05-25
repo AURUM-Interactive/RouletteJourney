@@ -1,5 +1,7 @@
 <a id="readme-top"></a>
 
+![readme-cover]
+
 <br/>
 <div align="center">
 
@@ -100,3 +102,7 @@ This project uses assets created by third parties. We would like to acknowledge 
 * Player character sprites created by [Otterisk](https://otterisk.itch.io/hana-caraka-base-character?download)
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
+
+<!-- MARKDOWN LINKS & IMAGES -->
+<!-- https://www.markdownguide.org/basic-syntax/#reference-style-links -->
+[readme-cover]: https://github.com/AURUM-Interactive/RouletteJourney/blob/main/Images/README_cover.png
