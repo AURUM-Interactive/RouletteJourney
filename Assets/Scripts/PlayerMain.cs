@@ -52,6 +52,9 @@ public class PlayerMain : MonoBehaviour
     // Game over UI
     public GameOverMenuScript GameOverMenuScript;
 
+    // 
+    public AudioManager audioManager;
+
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
@@ -199,6 +202,8 @@ public class PlayerMain : MonoBehaviour
 
         playerAnimator.SetBool("isDead", true);
         health = 0;
+
+        audioManager.StartDeathTheme();
 
         GameOverMenuScript.Setup();
     }
