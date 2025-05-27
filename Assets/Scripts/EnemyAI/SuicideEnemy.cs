@@ -36,7 +36,7 @@ public class SuicideEnemy : EnemyLogic
 
     protected override void AnimationMovement()
     {
-        
+        // SuicideEnemy does not have any animations
     }
 
     // Override EngageBehavior to disable active engagement

@@ -181,18 +181,19 @@ MonoBehaviour:
   idleSpeed: 2
   activeSpeed: 3
   minDistanceToPlayer: 3
-  reactionTime: 0.5
+  reactionTime: 0.2
   DamagePopUp: {fileID: 7211430870384141781, guid: 4a20c2c7f360780479d858c703b83e68, type: 3}
   RaycastShouldIgnore:
     serializedVersion: 2
     m_Bits: 160
   rb: {fileID: 7009305513633666871}
-  damage: 1
+  damage: 10
   attackCooldown: 2
   laserBeam: {fileID: 554161658877158480}
   startColor: {r: 0.33153635, g: 0, b: 0, a: 0}
   endColor: {r: 1, g: 0, b: 0, a: 1}
-  laserChargeTime: 0.6
+  laserChargeTime: 1.5
+  beamStartOffset: 0.5
 --- !u!114 &7042499550351516904
 MonoBehaviour:
   m_ObjectHideFlags: 0
