@@ -77,6 +77,7 @@ public abstract class EnemyLogic : MonoBehaviour
     {
         // Move in the current direction at idle speed.
         transform.position += (Vector3)moveDirection * idleSpeed * Time.deltaTime;
+        //AnimationMovement();
         
     }
 
@@ -135,6 +136,10 @@ public abstract class EnemyLogic : MonoBehaviour
 
         // Reset the retreat coroutine and wait before the next move.
         retreatCoroutine = null;
+
+        moveDirection = Vector2.zero;
+        AnimationMovement(); // Reset to idle animation
+
         yield return new WaitForSeconds(pauseBeforeNextMove);
     }
 
@@ -176,6 +181,7 @@ public abstract class EnemyLogic : MonoBehaviour
     protected void StopMovement()
     {
         moveDirection = Vector2.zero;
+        AnimationMovement();
     }
 
     // Attempts to initiate a retreat if the player is too close.
