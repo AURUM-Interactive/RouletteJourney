@@ -1116,6 +1116,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Ranged
       objectReference: {fileID: 0}
+    - target: {fileID: 2571970174506570728, guid: a87eb528816a60a448c43917978bd098, type: 3}
+      propertyPath: reactionTime
+      value: 0.2
+      objectReference: {fileID: 0}
     - target: {fileID: 9027218772289861088, guid: a87eb528816a60a448c43917978bd098, type: 3}
       propertyPath: m_LocalPosition.x
       value: -7.5099998

@@ -186,7 +186,7 @@ MonoBehaviour:
     serializedVersion: 2
     m_Bits: 224
   rb: {fileID: 2702804019699399355}
-  damage: 20
+  damage: 2
   attackCooldown: 1
 --- !u!114 &6351886141448256663
 MonoBehaviour:

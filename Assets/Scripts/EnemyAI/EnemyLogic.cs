@@ -20,6 +20,7 @@ public abstract class EnemyLogic : MonoBehaviour
     protected float bufferZone = 0.1f;
     protected float pauseBeforeNextMove = 0.5f;
     private Coroutine retreatCoroutine;
+    protected bool isRetreating = false;
 
     protected Animator animator;
     public Rigidbody2D rb;
@@ -125,6 +126,7 @@ public abstract class EnemyLogic : MonoBehaviour
         // Get a random escape direction.
         Vector2 escapeDirection = GetRandomEscapeDirection();
         float retreatTimer = 0f;
+        isRetreating = true;
 
         // Move in the escape direction for a short duration.
         while (retreatTimer < 0.7f)
@@ -136,6 +138,7 @@ public abstract class EnemyLogic : MonoBehaviour
 
         // Reset the retreat coroutine and wait before the next move.
         retreatCoroutine = null;
+        isRetreating = false;
 
         moveDirection = Vector2.zero;
         AnimationMovement(); // Reset to idle animation
