@@ -23,7 +23,9 @@
   <ol>
     <li><a href="#about-the-project">About The Project</a></li>
     <li><a href="#installation">Installation</a></li>
+    <li><a href="#tests">Tests</a></li>
     <li><a href="#user-manual">User Manual</a></li>
+    <li><a href="#documentation">Documentation</a></li>
     <li><a href="#license">License</a></li>
     <li><a href="#credits">Credits</a></li>
   </ol>
@@ -79,12 +81,19 @@ To get a local copy up and running follow these simple example steps.
    
 ### Tests
 
-// TODO: this xd
+This repository also contains duplicates of the tests written in the project's JIRA stories, consisting of text files describing how the program should behave and video files showing actual game behaviour. See the `Tests` folder and `TESTS_README.md` inside it for more information.
+
+[Tests](https://github.com/AURUM-Interactive/RouletteJourney/tree/main/Tests)
 
 ### User Manual
 
 Below is a user manual meant for explaining how the current DEMO build of the game works. <br> <br>
 [User Manual](https://github.com/AURUM-Interactive/RouletteJourney/wiki/User-Manual)
+
+### Documentation
+
+Project documentation is contained in the repository's wiki page <br><br>
+[Wiki](https://github.com/AURUM-Interactive/RouletteJourney/wiki)
 
 <!-- LICENSE -->
 ## License
