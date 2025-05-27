@@ -1116,42 +1116,6 @@ PrefabInstance:
       propertyPath: m_Name
       value: Ranged
       objectReference: {fileID: 0}
-    - target: {fileID: 2260720348126062299, guid: a87eb528816a60a448c43917978bd098, type: 3}
-      propertyPath: m_Sprite
-      value: 
-      objectReference: {fileID: 3836749044972561589, guid: fd7217224ab9684468dbf7704253fb9d, type: 3}
-    - target: {fileID: 2260720348126062299, guid: a87eb528816a60a448c43917978bd098, type: 3}
-      propertyPath: m_Color.b
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 2260720348126062299, guid: a87eb528816a60a448c43917978bd098, type: 3}
-      propertyPath: m_Color.g
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 2260720348126062299, guid: a87eb528816a60a448c43917978bd098, type: 3}
-      propertyPath: m_Color.r
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 7386310118053380512, guid: a87eb528816a60a448c43917978bd098, type: 3}
-      propertyPath: m_Size.x
-      value: 1.9375
-      objectReference: {fileID: 0}
-    - target: {fileID: 7386310118053380512, guid: a87eb528816a60a448c43917978bd098, type: 3}
-      propertyPath: m_Size.y
-      value: 2.0625
-      objectReference: {fileID: 0}
-    - target: {fileID: 7386310118053380512, guid: a87eb528816a60a448c43917978bd098, type: 3}
-      propertyPath: m_Offset.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 7386310118053380512, guid: a87eb528816a60a448c43917978bd098, type: 3}
-      propertyPath: m_Offset.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 7386310118053380512, guid: a87eb528816a60a448c43917978bd098, type: 3}
-      propertyPath: m_CompositeOperation
-      value: 0
-      objectReference: {fileID: 0}
     - target: {fileID: 9027218772289861088, guid: a87eb528816a60a448c43917978bd098, type: 3}
       propertyPath: m_LocalPosition.x
       value: -7.5099998
@@ -1195,10 +1159,7 @@ PrefabInstance:
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents:
-    - targetCorrespondingSourceObject: {fileID: 1812614267572379676, guid: a87eb528816a60a448c43917978bd098, type: 3}
-      insertIndex: -1
-      addedObject: {fileID: 1585534507}
+    m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: a87eb528816a60a448c43917978bd098, type: 3}
 --- !u!1 &1518934178
 GameObject:
@@ -1334,33 +1295,6 @@ BoxCollider2D:
   m_AutoTiling: 0
   m_Size: {x: 1, y: 1}
   m_EdgeRadius: 0
---- !u!1 &1585534506 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 1812614267572379676, guid: a87eb528816a60a448c43917978bd098, type: 3}
-  m_PrefabInstance: {fileID: 1434124085}
-  m_PrefabAsset: {fileID: 0}
---- !u!95 &1585534507
-Animator:
-  serializedVersion: 7
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1585534506}
-  m_Enabled: 1
-  m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 9100000, guid: e32c949e78da1cc438a4bcb6576bceb5, type: 2}
-  m_CullingMode: 0
-  m_UpdateMode: 0
-  m_ApplyRootMotion: 0
-  m_LinearVelocityBlending: 0
-  m_StabilizeFeet: 0
-  m_AnimatePhysics: 0
-  m_WarningMessage: 
-  m_HasTransformHierarchy: 1
-  m_AllowConstantClipSamplingOptimization: 1
-  m_KeepAnimatorStateOnDisable: 0
-  m_WriteDefaultValuesOnDisable: 0
 --- !u!1 &1810320918
 GameObject:
   m_ObjectHideFlags: 0
