@@ -47,11 +47,11 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   enemyOptions:
   - prefab: {fileID: 5979639349373661589, guid: 758ace2828f90e046919cfe5cae3bd30, type: 3}
-    spawnChance: 0.2
+    spawnRatio: 3
   - prefab: {fileID: 1161072675870670653, guid: d5802a66d992cf749ba2811420ad0859, type: 3}
-    spawnChance: 0.6
+    spawnRatio: 5
   - prefab: {fileID: 1812614267572379676, guid: a87eb528816a60a448c43917978bd098, type: 3}
-    spawnChance: 1
+    spawnRatio: 1
 --- !u!212 &3254149303774594806
 SpriteRenderer:
   m_ObjectHideFlags: 0
