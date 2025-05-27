@@ -8,3 +8,6 @@ Gameplay:
 2. All enemy types can attack player;
 3. All enemy types can be killed by player;
 4. Reaching level exit opens a pop-up prompting the player to finish the level or stay;
+5. Player is animated: moving animations, hurt animations, death animations;
+
+This test should be tested in an end to end fashion, with the recording containing all tests in one video file. 
