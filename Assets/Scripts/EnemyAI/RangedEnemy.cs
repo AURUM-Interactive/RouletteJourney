@@ -27,40 +27,45 @@ public class RangedEnemy : EnemyLogic
         }
         else
         {
-            StopMovement(); // Idle when in optimal range
+            // In optimal range - stop all movement and stay idle
+            StopMovement();
+            // Reset the timer to prevent MoveAround from being called
+            timer = 0.5f;
         }
     }
 
     protected override void AnimationMovement()
     {
+        Vector2 toPlayer = Player.transform.position - transform.position;
+
+        // Only update animations if we're actually supposed to be moving
         if (moveDirection.magnitude > 0.01f)
         {
             Vector2 normalizedDir = moveDirection.normalized;
-            float angle = Mathf.Atan2(normalizedDir.y, normalizedDir.x) * Mathf.Rad2Deg;
-            angle = (angle + 360f) % 360f;
+            animator.SetBool("Idle", false);
 
-            bool isRight = angle <= 30f || angle >= 330f;
-            bool isLeft = angle >= 150f && angle <= 210f;
-
-            if (isRight)
+            // For straight up or down movement, use left animation
+            if (Mathf.Abs(normalizedDir.x) < 0.001f) // Moving almost perfectly vertical
             {
-                animator.SetFloat("MoveX", 1);
-                animator.SetFloat("MoveY", 0);
-            }
-            else if (isLeft)
-            {
-                animator.SetFloat("MoveX", -1);
-                animator.SetFloat("MoveY", 0);
+                animator.SetFloat("MoveX", -1); // Use left animation
             }
             else
             {
-                // Use vertical direction to decide
-                animator.SetFloat("MoveX", 1);
-                animator.SetFloat("MoveY", 0);
+                // Use the actual X direction for left/right movement
+                animator.SetFloat("MoveX", normalizedDir.x);
             }
         }
-    }
+        else
+        {
+            animator.SetBool("Idle", true);
 
+            if (toPlayer.x < 0)
+                animator.SetFloat("MoveX", -1);
+            else
+                animator.SetFloat("MoveX", 1);
+
+        }
+    }
 
     // Coroutine for ranged attack logic
     private IEnumerator RangedAttackRoutine()
