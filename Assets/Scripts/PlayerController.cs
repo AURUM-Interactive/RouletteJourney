@@ -14,12 +14,14 @@ public class PlayerController : MonoBehaviour
 
     private Vector2 moveInput;
     private Vector2 lastMoveDirection;
+    public bool ControlsEnabled { get; set; }
 
     [SerializeField]
     GameObject pauseMenu;
 
     private void Start()
     {
+        ControlsEnabled = true;
         playerSpriteAnimator = GetComponent<Animator>();
     }
 
@@ -36,19 +38,21 @@ public class PlayerController : MonoBehaviour
 
     private void GetInput()
     {
-        float horizontalInput = Input.GetAxisRaw("Horizontal");
-        float verticalInput = Input.GetAxisRaw("Vertical");
-
-        if (moveInput.magnitude != 0)
+        if (ControlsEnabled)
         {
-            lastMoveDirection = moveInput;
-        }
+            float horizontalInput = Input.GetAxisRaw("Horizontal");
+            float verticalInput = Input.GetAxisRaw("Vertical");
 
-        moveInput = new Vector2(horizontalInput, verticalInput).normalized;
+            if (moveInput.magnitude != 0)
+            {
+                lastMoveDirection = moveInput;
+            }
+
+            moveInput = new Vector2(horizontalInput, verticalInput).normalized;
+        }
 
         if (Input.GetKeyDown(KeyCode.Escape))
         {
-            Time.timeScale = !pauseMenu.activeSelf ? 0 : 1;
             pauseMenu.SetActive(!pauseMenu.activeSelf);
         }
     }
@@ -66,29 +70,7 @@ public class PlayerController : MonoBehaviour
         playerSpriteAnimator.SetFloat("LastMoveX", lastMoveDirection.x);
         playerSpriteAnimator.SetFloat("LastMoveY", lastMoveDirection.y);
 
-        Debug.Log($"x: {lastMoveDirection}");
-    }
-
-    int normalizeDirection(float direction)
-    {
-        int xDirection;
-        if (direction != 0)
-        {
-            if (direction > 0)
-            {
-                xDirection = 1;
-            }
-            else
-            {
-                xDirection = -1;
-            }
-        }
-        else
-        {
-            xDirection = 0;
-        }
-
-        return xDirection;
+        //Debug.Log($"x: {lastMoveDirection}");
     }
 }
 

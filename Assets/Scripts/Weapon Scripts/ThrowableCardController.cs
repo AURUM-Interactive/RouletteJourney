@@ -9,6 +9,7 @@ public class ThrowableCardController : MonoBehaviour
 
     private Camera mainCamera;
     private PlayerMain playerMainScript;
+    private PlayerController playerController;
 
     Vector3 mousePosition;
     bool primaryFire;
@@ -18,11 +19,14 @@ public class ThrowableCardController : MonoBehaviour
     {
         mainCamera = Camera.main;
         playerMainScript = this.transform.parent.gameObject.GetComponent<PlayerMain>();
+        playerController = this.transform.parent.gameObject.GetComponent<PlayerController>();
     }
 
     void Update()
     {
         UpdateMousePostion();
+
+        if (!playerController.ControlsEnabled) return;
 
         if (Input.GetMouseButtonDown(0))
         {
