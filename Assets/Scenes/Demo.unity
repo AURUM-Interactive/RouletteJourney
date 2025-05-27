@@ -38500,10 +38500,6 @@ PrefabInstance:
       propertyPath: m_Name
       value: UserInterface
       objectReference: {fileID: 0}
-    - target: {fileID: 3674616367108639198, guid: c9dadea0a98177f44970a23bef05c06a, type: 3}
-      propertyPath: audioManager
-      value: 
-      objectReference: {fileID: 598876164}
     - target: {fileID: 4189318805976500304, guid: c9dadea0a98177f44970a23bef05c06a, type: 3}
       propertyPath: m_AnchorMax.x
       value: 0
@@ -38512,10 +38508,10 @@ PrefabInstance:
       propertyPath: m_AnchorMax.y
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 4258675810972329926, guid: c9dadea0a98177f44970a23bef05c06a, type: 3}
-      propertyPath: audioManager
-      value: 
-      objectReference: {fileID: 598876164}
+    - target: {fileID: 4452312646755442524, guid: c9dadea0a98177f44970a23bef05c06a, type: 3}
+      propertyPath: m_Alpha
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 4513264434065949755, guid: c9dadea0a98177f44970a23bef05c06a, type: 3}
       propertyPath: m_AnchorMax.x
       value: 0
@@ -38523,6 +38519,10 @@ PrefabInstance:
     - target: {fileID: 4513264434065949755, guid: c9dadea0a98177f44970a23bef05c06a, type: 3}
       propertyPath: m_AnchorMax.y
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5259367808668633013, guid: c9dadea0a98177f44970a23bef05c06a, type: 3}
+      propertyPath: m_Alpha
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 7140430254334083208, guid: c9dadea0a98177f44970a23bef05c06a, type: 3}
       propertyPath: m_Pivot.x
@@ -38604,10 +38604,6 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 8900175532826825119, guid: c9dadea0a98177f44970a23bef05c06a, type: 3}
-      propertyPath: audioManager
-      value: 
-      objectReference: {fileID: 598876164}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -40321,7 +40317,6 @@ SceneRoots:
   - {fileID: 619394802}
   - {fileID: 1963124910042285405}
   - {fileID: 1193872772}
-  - {fileID: 2099468950}
   - {fileID: 830608172}
   - {fileID: 171966447}
   - {fileID: 251602490}
@@ -40368,3 +40363,4 @@ SceneRoots:
   - {fileID: 333687757}
   - {fileID: 2125634313}
   - {fileID: 439451696}
+  - {fileID: 2099468950}

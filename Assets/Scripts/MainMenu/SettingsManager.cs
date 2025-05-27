@@ -7,6 +7,9 @@ public class SettingsManager : MonoBehaviour
     public TMP_Dropdown resolutionDropdown;
     public Slider volumeSlider;
 
+    [SerializeField]
+    GameObject MainMenu;
+
     void Start()
     {
         // Load and apply saved resolution
@@ -38,6 +41,7 @@ public class SettingsManager : MonoBehaviour
         PlayerPrefs.Save();
 
         this.gameObject.SetActive(false);
+        MainMenu.SetActive(true);
     }
 
     private void SetResolution(string res)

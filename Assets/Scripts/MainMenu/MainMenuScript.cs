@@ -10,7 +10,11 @@ public class MainMenuScript : MonoBehaviour
 {
     public string GameScene;
 
-    public GameObject SettingsScreen;
+    [SerializeField]
+    GameObject SettingsScreen;
+
+    [SerializeField]
+    GameObject MainMenu;
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
@@ -32,6 +36,7 @@ public class MainMenuScript : MonoBehaviour
     public void ClickSettings()
     {
         SettingsScreen.SetActive(true);
+        MainMenu.SetActive(false);
     }
 
     public void ClickExit()
