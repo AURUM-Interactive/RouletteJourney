@@ -18863,6 +18863,26 @@ PrefabInstance:
       propertyPath: GameOverMenuScript
       value: 
       objectReference: {fileID: 182683942}
+    - target: {fileID: 3138978272015792803, guid: 5132be2d36b23b843ae97ae02b15b3d0, type: 3}
+      propertyPath: possibleCardSprites.Array.size
+      value: 4
+      objectReference: {fileID: 0}
+    - target: {fileID: 3138978272015792803, guid: 5132be2d36b23b843ae97ae02b15b3d0, type: 3}
+      propertyPath: 'possibleCardSprites.Array.data[0]'
+      value: 
+      objectReference: {fileID: -8782457176754920611, guid: 20369fa45de2b9c4c9a7ad40aacb315a, type: 3}
+    - target: {fileID: 3138978272015792803, guid: 5132be2d36b23b843ae97ae02b15b3d0, type: 3}
+      propertyPath: 'possibleCardSprites.Array.data[1]'
+      value: 
+      objectReference: {fileID: -5960619747043330525, guid: 20369fa45de2b9c4c9a7ad40aacb315a, type: 3}
+    - target: {fileID: 3138978272015792803, guid: 5132be2d36b23b843ae97ae02b15b3d0, type: 3}
+      propertyPath: 'possibleCardSprites.Array.data[2]'
+      value: 
+      objectReference: {fileID: -5951575007280440095, guid: 20369fa45de2b9c4c9a7ad40aacb315a, type: 3}
+    - target: {fileID: 3138978272015792803, guid: 5132be2d36b23b843ae97ae02b15b3d0, type: 3}
+      propertyPath: 'possibleCardSprites.Array.data[3]'
+      value: 
+      objectReference: {fileID: -3297623226990317115, guid: 20369fa45de2b9c4c9a7ad40aacb315a, type: 3}
     - target: {fileID: 4664157874279375141, guid: 5132be2d36b23b843ae97ae02b15b3d0, type: 3}
       propertyPath: m_Name
       value: Player

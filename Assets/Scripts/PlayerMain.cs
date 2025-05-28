@@ -68,6 +68,9 @@ public class PlayerMain : MonoBehaviour
     new CardData("Curse", "You have been cursed! Stats are decreased.", -0.5f , -0.5f , -5, -5),
     new CardData("Eat your veggies", "You have a good diet consisting of vegetables, you regain HP faster.", 3, 0, 0, 0)
     };
+
+    [SerializeField]
+    List<Sprite> possibleCardSprites;
     
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
@@ -86,6 +89,11 @@ public class PlayerMain : MonoBehaviour
         GameObject Slot1 = GameObject.Find("Card1Pos");
         GameObject Slot2 = GameObject.Find("Card2Pos");
         GameObject Slot3 = GameObject.Find("Card3Pos");
+
+        foreach (var card in possibleCards)
+        {
+            card.cardSprite = possibleCardSprites[Random.Range(0, possibleCardSprites.Count)];
+        }
 
         inventory.Add(possibleCards[Random.Range(0, possibleCards.Count)]);
         inventory.Add(possibleCards[Random.Range(0, possibleCards.Count)]);

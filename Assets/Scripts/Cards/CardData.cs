@@ -8,6 +8,7 @@ public class CardData
 {
     public string CardName = "";
     public string CardDescription = "";
+    public Sprite cardSprite;
 
     private CardGUI inventoryInstance = null;
 

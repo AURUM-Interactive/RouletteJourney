@@ -1,3 +1,4 @@
+using System.Collections.Generic;
 using System.Linq;
 using TMPro;
 using Unity.VisualScripting;
@@ -38,6 +39,7 @@ public class CardGUI : MonoBehaviour
     {
         CardName = name; 
         CardDescription = description;
+        this.GetComponent<Image>().sprite = inventoryCard.cardSprite;
         inventoryInstance = inventoryCard;
         consumable = false;
         HPRegenChange = hpregen;
@@ -78,6 +80,7 @@ public class CardGUI : MonoBehaviour
     {
         CardName = cardName;
         CardDescription = cardDescription;
+        this.GetComponent<Image>().sprite = inventoryCard.cardSprite;
         inventoryInstance = inventoryCard;
         consumable = true;
         HealAmount = healAmount;
@@ -106,6 +109,7 @@ public class CardGUI : MonoBehaviour
         TextMeshProUGUI CardTitleText = this.transform.GetChild(0).GetComponent<TextMeshProUGUI>();
         TextMeshProUGUI CardDesc = this.transform.GetChild(1).GetComponent<TextMeshProUGUI>();
         GameObject useButton = this.transform.GetChild(2).GameObject();
+        
 
         CardTitleText.text = CardName;
         CardDesc.text = CardDescription;
