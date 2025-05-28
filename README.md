@@ -105,6 +105,7 @@ This project is distributed under the MIT License. See the `LICENSE` file for mo
 
 This project uses assets created by third parties. We would like to acknowledge the following persons for their works used in this project.
 
+* Main Menu music theme (Forgotten Biomes) created by [Pizza Doggy](https://pizzadoggy.itch.io/cozy-tunes)
 * Gameplay music theme (Retro arcade music #3) created by [BloodPixelHero](https://freesound.org/people/BloodPixelHero/sounds/607942/)
 * Death music theme (We Know) created by [ChillMindscapes](https://chillmindscapes.itch.io/free-chiptune-music-pack-5-chillmindscapes?download)
 * [Game level art](https://gamebetweenthelines.itch.io/2d-top-down-pixel-art-tileset-casino) created by Jephed, Game Between The Lines, https://gamebetweenthelines.com/
