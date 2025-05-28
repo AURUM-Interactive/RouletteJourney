@@ -13,7 +13,7 @@
     <a href="https://github.com/AURUM-Interactive/RouletteJourney/wiki"><strong>Explore the docs »</strong></a>
     <br />
     <br />
-    <a href="https://github.com/othneildrew/Best-README-Template">View Project Demo Build</a>
+    <a href="https://github.com/AURUM-Interactive/RouletteJourney/releases/tag/v2025-05-28">View Project Demo Build</a>
   </p>
 </div>
 
